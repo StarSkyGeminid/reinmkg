@@ -1,0 +1,235 @@
+{
+  "@@locale": "id",
+  "version": "Versi {version}",
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "idText": "Indonesia",
+  "enText": "Inggris",
+  "languageText": "Bahasa",
+  "languageSelectionText": "Pilih Bahasa",
+  "languageFromLocale": "{locale, select, en{English} id{Indonesia} other{Tidak Diketahui}}",
+  "@languageFromLocale": {
+    "placeholders": {
+      "locale": {
+        "type": "String"
+      }
+    }
+  },
+  "unitText": "Satuan",
+  "unitSelectionTypeText": "Pilih Satuan",
+  "unitType": "{unit, select, metric{Metrik} imperial{Imperial} other{Tidak Diketahui}}",
+  "@unitType": {
+    "placeholders": {
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "unitMetricExampleText": "Metrik (°C, kmpj)",
+  "unitImperialExampleText": "Imperial (°F, mpj)",
+  "generalSettingsText": "Pengaturan",
+  "wtrClearSkies": "Cerah",
+  "wtrPartlyCloudy": "Sebagian Berawan",
+  "wtrMostlyCloudy": "Berawan",
+  "wtrOvercast": "Mendung",
+  "wtrHaze": "Kabut",
+  "wtrSmoke": "Asap",
+  "wtrFog": "Kabut",
+  "wtrLightRain": "Hujan Ringan",
+  "wtrRain": "Hujan",
+  "wtrHeavyRain": "Hujan Lebat",
+  "wtrIsolatedShower": "Hujan Lokal",
+  "wtrSevereThunderStorm": "Badai Guntur yang Parah",
+  "now": "Hari ini",
+  "humidity": "Humiditas",
+  "windSpeed": "Angin",
+  "windDirection": "Arah Angin",
+  "weatherForecast": "Prakiraan Cuaca",
+  "glossariumText": "Glosarium",
+  "weatherText": "Cuaca",
+  "sateliteText": "Satelit",
+  "earthquakeText": "Gempa Bumi",
+  "weatherGlosariumTitle": "Glosari Cuaca",
+  "weatherIconDescriptionTitle": "Keterangan Ikon Cuaca",
+  "weatherClearDescription": "Langit tidak tertutup awan atau bagian langit yang tertutup awan hanya 1 oktas¹.",
+  "weatherPartlyCloudyDescription": "Langit yang tertutup awan antara 2-3 oktas¹.",
+  "weatherMostlyCloudyDescription": "Langit yang tertutup awan antara 4-6 oktas¹.",
+  "weatherOvercastDescription": "Langit yang tertutup awan antara 7-8 oktas¹.",
+  "weatherHazeDescription": "Reduksi jarak pandang akibat partikel halus seperti debu atau polusi yang menggantung di udara.",
+  "weatherSmokeDescription": "Partikel debu, asap, atau gas berbahaya yang menciptakan lapisan udara tebal dan berbahaya di dekat permukaan tanah.",
+  "weatherFogDescription": "Uap air yang berada dekat permukaan tanah berkondensasi dan menjadi mirip awan.",
+  "weatherRainDescription": "Hujan dengan akumulasi curah hujan antara 5-20 mm/hari atau 0.1-5 mm/jam.",
+  "weatherLightRainDescription": "Hujan dengan akumulasi curah hujan antara 20-50 mm/hari atau 5-20 mm/jam.",
+  "weatherHeavyRainDescription": "Hujan dengan akumulasi curah hujan >50 mm/hari atau >20 mm/jam.",
+  "weatherIsolatedShowerDescription": "Hujan ringan hingga sedang yang turun secara sporadis di lokasi tertentu, dengan cakupan wilayah kecil dan sering tidak berlangsung lama.",
+  "weatherSevereThunderStormDescription": "Hujan yang disertai kilat/petir dan angin kencang.",
+  "aboutOctas": "[1] Oktas merupakan satuan dalam pengukuran untuk mendeskripsikan jumlah awan yang menutupi langit pada suatu lokasi.",
+  "windIconDescriptionTitle": "Keterangan Ikon Arah Angin",
+  "windDirectionNorthDescription": "Arah Angin dari Utara (U)",
+  "windDirectionNorthEastDescription":"Arah Angin dari Timur Laut (TL)",
+  "windDirectionEastDescription":"Arah Angin dari Timur (T)",
+  "windDirectionSouthEastDescription":"Arah Angin dari Tenggara (TG)",
+  "windDirectionSouthDescription":"Arah Angin dari Selatan (S)",
+  "windDirectionSouthWestDescription":"Arah Angin dari Barat Daya (BD)",
+  "windDirectionWestDescription":"Arah Angin dari Barat (B)",
+  "windDirectionNorthWestDescription":"Arah Angin dari Barat Laut (BL)",
+  "oneWeekForecast": "Cuaca Sepekan Kedepan",
+  "radar": "Radar",
+    "radarTypeName": "{value, select, cmax{CMAX} nowcast{NOWCAST} qpf{QPF} cmaxssa{CMAX-SSA} cmaxhwind{CMAX-HWIND} cappi05{{metric, select, metric{CAPPI 0.5Km} other{CAPPI 0.31mil}} } cappi1{{metric, select, metric{CAPPI 0.5Km} other{CAPPI 0.32mil}}} sri{SRI} pac1{PAC 1jam} pac6{PAC 6jam} pac12{PAC 12jam} pac24{PAC 24jam} other{Unknown}}",
+    "@radarTypeName": {
+      "placeholders": {
+        "metric": {
+          "type": "String"
+        },
+        "value": {
+          "type": "String"
+        }
+      }
+    },
+  "sateliteImage": "Citra Satelit",
+  "nowcast": "Nowcast",
+  "maritime": "Maritim",
+  "windDirectionValue": "{value, select, north{U} northEast{TL} east{T} southEast{TG} south{S} southWest{BD} west{B} northWest{BL} other{{value}}}",
+  "@windDirectionValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "windDirectionDescription": "Arah Angin dari {direction, select, north{Utara} northEast{Timur Laut} east{Timur} southEast{Tenggara} south{Selatan} southWest{Barat Daya} west{Barat} northWest{Barat Laut} other{{direction}}}",
+  "@windDirectionDescription": {
+    "placeholders": {
+      "direction": {
+        "type": "String"
+      }
+    }
+  },
+  "speedWithUnit": "{metric, select, true{{nan, select, nan{- kmpj} other{{value} kmpj}}} other{{nan, select, nan{- mpj} other{{value}\nmpj}}}}",
+  "@speedWithUnit": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      },
+      "nan": {
+        "type": "String"
+      },
+      "value": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "distanceWithUnit": "{metric, select, true{{nan, select, nan{- km} other{{value} km}}} other{{nan, select, nan{- mil} other{{value} mil}}}}",
+  "@distanceWithUnit": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      },
+      "nan": {
+        "type": "String"
+      },
+      "value": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "eqFelt": "Gempa Dirasakan",
+  "eqRealtime": "Gempa Terkini",
+  "eqMagnitude": "Magnitudo",
+  "eqDepth": "Kedalaman",
+  "eqFeltArea": "Wilayah Dirasakan",
+  "tsunamiEarlyWarning": "Peringatan Dini {value}",
+  "@tsunamiEarlyWarning": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "instruction": "Instruksi",
+  "coordinate": "Koordinat",
+  "description": "Deksripsi",
+  "distance": "Jarak",
+  "time": "Waktu",
+  "showShakeMap": "Tampilkan ShakeMap",
+  "hideShakeMap": "Sembunyikan ShakeMap",
+  "eqWarning": "{type, select, felt{Gempa Dirasakan} mover5{Gempa M>5} pd1{Tsunami PD-1} pd2{Tsunami PD-2} pd3{Tsunami PD-3} pd4{Tsunami PD-4} other{-}}",
+  "@eqWarning": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "eqMenuType": "{type, select, map{Peta}  felt{Dirasakan} realtime{Terkini} overfive{M > 5} tsunami{Tsunami} other{-}}",
+  "@eqMenuType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "eqDistance": "{nan, select, null{-} other{{distance} {metric, select, true{km} other{mil}} dari lokasi Anda ({location, select, null{-} other{{location}}}}}",
+  "@eqDistance": {
+    "placeholders": {
+      "nan": {
+        "type": "String"
+      },
+      "metric": {
+        "type": "String"
+      },
+      "location": {
+        "type": "String"
+      },
+      "distance": {
+        "type": "num"
+      }
+    }
+  },
+  "legend": "Legenda",
+  "rainIntensity": "Intensitas Hujan",
+  "rainLight": "Ringan",
+  "rainModerate": "Sedang",
+  "rainHeavy": "Lebat",
+  "rainVeryHeavy": "Sangat Lebat",
+  "hour": "Jam",
+  "waveHeightStatus": "{status, select, calm{Tenang} low{Rendah} medium{Sedang} high{Tinggi} veryhigh{Sangat Tinggi} extreme{Ekstrim} veryextreme{Sangat Ekstrim} other{Unkown}}",
+  "@waveHeightStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "illumination": "Bercahaya {value}%",
+  "@illumination": {
+    "placeholders": {
+      "value": {
+        "type": "double",
+        "format": "compact"
+      }
+    }
+  },
+  "riseSetText": "Terbit - Terbenam",
+  "sunText": "Matahari",
+  "sunriseText": "Terbit",
+  "sunsetText": "Tenggelam",
+  "moonText": "Bulan",
+  "moonriseText": "Terbit",
+  "moonsetText": "Tenggelam",
+  "moonphaseText": "{status, select, newMoon{Bulan Baru} waxingCrescent{Bulan Sabit} firstQuarter{Perbani Awal} waxingGibbous{Cembung} fullMoon{Purnama} waningGibbous{Cembung} lastQuarter{Perbani Akhir} waningCrescent{Bulan Sabit} other{Unkown}}",
+  "@moonphaseText": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  }
+}

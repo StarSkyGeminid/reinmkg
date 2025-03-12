@@ -1,0 +1,1 @@
+export 'local_earthquake_service_datasource.dart';

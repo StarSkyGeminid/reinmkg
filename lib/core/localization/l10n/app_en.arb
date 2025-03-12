@@ -1,0 +1,236 @@
+{
+  "@@locale": "en",
+  "version": "Version {version}",
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "idText": "Indonesian",
+  "enText": "English",
+  "languageText": "Language",
+  "languageSelectionText": "Select Language",
+  "languageFromLocale": "{locale, select, en{English} id{Indonesia} other{Unknown}}",
+  "@languageFromLocale": {
+    "placeholders": {
+      "locale": {
+        "type": "String"
+      }
+    }
+  },
+  "unitText": "Unit",
+  "unitSelectionTypeText": "Select Unit",
+  "unitType": "{unit, select, metric{Metric} imperial{Imperial} other{Unknown}}",
+  "@unitType": {
+    "placeholders": {
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "unitMetricExampleText": "Metric (°C, kmph)",
+  "unitImperialExampleText": "Imperial (°F, mph)",
+  "generalSettingsText": "General Settings",
+  "wtrClearSkies": "Clear Sky",
+  "wtrPartlyCloudy": "Partly Cloudy",
+  "wtrMostlyCloudy": "Mostly Cloudy",
+  "wtrOvercast": "Overcast",
+  "wtrHaze": "Haze",
+  "wtrSmoke": "Smoke",
+  "wtrFog": "Fog",
+  "wtrLightRain": "Light Rain",
+  "wtrRain": "Rain",
+  "wtrHeavyRain": "Heavy Rain",
+  "wtrIsolatedShower": "Isolated Shower",
+  "wtrSevereThunderStorm": "Severe Thunder Storm",
+  "now": "Today",
+  "humidity": "Humidity",
+  "windSpeed": "Wind",
+  "windDirection": "Wind Direction",
+  "weatherForecast": "Weather Forecast",
+  "glossariumText": "Glossary",
+  "weatherText": "Weather",
+  "sateliteText": "Satelite",
+  "earthquakeText": "Earthquake",
+  "weatherGlosariumTitle": "Weather Glossary",
+  "weatherIconDescriptionTitle": "Weather Icon Description",
+  "weatherClearDescription": "The sky is not covered by clouds or the part of the sky covered by clouds is only 1 okta¹.",
+  "weatherPartlyCloudyDescription": "Cloud-covered sky between 2-3 okta¹.",
+  "weatherMostlyCloudyDescription": "Cloud-covered sky between 4-6 okta¹.",
+  "weatherOvercastDescription": "Cloud-covered sky between 7-8 okta¹.",
+  "weatherHazeDescription": "Reduced visibility due to fine particles such as dust or pollution suspended in the air.",
+  "weatherSmokeDescription": "Dust particles, smoke or harmful gases that create a thick and hazardous layer of air near the ground.",
+  "weatherFogDescription": "Water vapor near the ground condenses and becomes cloud-like.",
+  "weatherLightRainDescription": "Rain with rainfall accumulation between 5-20 mm/day or 0.1-5 mm/hour.",
+  "weatherRainDescription": "Rain with rainfall accumulation between 20-50 mm/day or 5-20 mm/hour.",
+  "weatherHeavyRainDescription": "Rain with rainfall accumulation >50 mm/day or >20 mm/hour.",
+  "weatherIsolatedShowerDescription": "Light to moderate rain that falls sporadically in certain locations, with a small area coverage and often does not last long.",
+  "weatherSevereThunderStormDescription": "Rain accompanied by lightning/thunder and strong winds.",
+  "aboutOctas": "[1] Okta is a unit of measurement used to describe the amount of clouds covering the sky at a given location.",
+  "windIconDescriptionTitle": "Wind Direction Icon Description",
+  "windDirectionNorthDescription": "Wind Direction from the North (N)",
+  "windDirectionNorthEastDescription": "Wind Direction from the Northeast (NE)",
+  "windDirectionEastDescription": "Wind Direction from the East (E)",
+  "windDirectionSouthEastDescription": "Wind Direction from Southeast (SE)",
+  "windDirectionSouthDescription": "Wind Direction from South (S)",
+  "windDirectionSouthWestDescription": "Wind Direction from Southwest (SW)",
+  "windDirectionWestDescription": "Wind Direction from the West (W)",
+  "windDirectionNorthWestDescription": "Wind Direction from Northwest (NW)",
+  "oneWeekForecast": "Weekly Forecast",
+  "radar": "Radar",
+  "radarTypeName": "{value, select, cmax{CMAX} nowcast{NOWCAST} qpf{QPF} cmaxssa{CMAX-SSA} cmaxhwind{CMAX-HWIND} cappi05{{metric, select, metric{CAPPI 0.5Km} other{CAPPI 0.31mil}} } cappi1{{metric, select, metric{CAPPI 0.5Km} other{CAPPI 0.32mil}}} sri{SRI} pac1{PAC 1h} pac6{PAC 6h} pac12{PAC 12h} pac24{PAC 24h} other{Unknown}}",
+  "@radarTypeName": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "sateliteImage": "Satelite",
+  "nowcast": "Nowcast",
+  "maritime": "Maritime",
+  "windDirectionValue": "{value, select, north{N} northEast{NE} east{E} southEast{SE} south{S} southWest{SW} west{W} northWest{NW} other{{value}}}",
+  "@windDirectionValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "windDirectionDescription": "Wind direction from the {direction, select, north{North} northEast{North East} east{East} southEast{South East} south{South} southWest{South West} west{West} northWest{North West} other{{direction}}}",
+  "@windDirectionDescription": {
+    "placeholders": {
+      "direction": {
+        "type": "String"
+      }
+    }
+  },
+  "speedWithUnit": "{metric, select, true{{nan, select, nan{- kmph} other{{value} kmph}}} other{{nan, select, nan{- mph} other{{value}\nmph}}}}",
+  "@speedWithUnit": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      },
+      "nan": {
+        "type": "String"
+      },
+      "value": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "distanceWithUnit": "{metric, select, true{{nan, select, nan{- km} other{{value} km}}} other{{nan, select, nan{- mile} other{{value, plural, =0{0 mile} =1{1 mile} other{{value} miles}}}}}}",
+  "@distanceWithUnit": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      },
+      "nan": {
+        "type": "String"
+      },
+      "value": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "eqFelt": "Earthquake Felt",
+  "eqRealtime": "Earthquake Realtime",
+  "eqMagnitude": "Magnitude",
+  "eqDepth": "Depth",
+  "eqFeltArea": "Felt Area",
+  "tsunamiEarlyWarning": "Early Warning {value}",
+  "@tsunamiEarlyWarning": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "instruction": "Instruction",
+  "coordinate": "Coordinate",
+  "description": "Description",
+  "distance": "Distance",
+  "time": "Time",
+  "showShakeMap": "Show ShakeMap",
+  "hideShakeMap": "Hide ShakeMap",
+  "eqWarning": "{type, select, felt{Earthquake Felt} mover5{M>5 Earthquake} pd1{Tsunami EW-1} pd2{Tsunami EW-2} pd3{Tsunami EW-3} pd4{Tsunami EW-4} other{-}}",
+  "@eqWarning": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "eqMenuType": "{type, select, map{Map}  felt{Felt} realtime{Newest} overfive{M > 5} tsunami{Tsunami} other{-}}",
+  "@eqMenuType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "eqDistance": "{nan, select, nan{-} other{{distance} {metric, select, true{km} other{{nan, select, nan{- mile} other{{distance, plural, =0{mile} =1{mile} other{miles}}}}}} from your location ({location, select, null{-} other{{location}}})}}",
+  "@eqDistance": {
+    "placeholders": {
+      "nan": {
+        "type": "String"
+      },
+      "metric": {
+        "type": "String"
+      },
+      "location": {
+        "type": "String"
+      },
+      "distance": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "legend": "Legend",
+  "rainIntensity": "Rain Intensity",
+  "rainLight": "Light",
+  "rainModerate": "Moderate",
+  "rainHeavy": "Heavy",
+  "rainVeryHeavy": "Very Heavy",
+  "hour": "Hour",
+  "waveHeightStatus": "{status, select, calm{Calm} low{Low} medium{Medium} high{High} veryhigh{Very Heigh} extreme{Extreme} veryextreme{Very Extreme} other{Unkown}}",
+  "@waveHeightStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "illumination": "{value}% Illuminated",
+  "@illumination": {
+    "placeholders": {
+      "value": {
+        "type": "double",
+        "format": "compact"
+      }
+    }
+  },
+  "riseSetText": "Rise - Set",
+  "sunText": "Sun",
+  "sunriseText": "Sunrise",
+  "sunsetText": "Sunset",
+  "moonText": "Moon",
+  "moonriseText": "Moonrise",
+  "moonsetText": "Moonset",
+  "moonphaseText": "{status, select, newMoon{New Moon} waxingCrescent{Waxing Crescent} firstQuarter{First Quarter} waxingGibbous{Waxing Gibbous} fullMoon{Full Moon} waningGibbous{Waning Gibbous} lastQuarter{Last Quarter} waningCrescent{Waning Crescent} other{Unkown}}",
+  "@moonphaseText": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  }
+}

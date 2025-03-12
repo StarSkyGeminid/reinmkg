@@ -1,0 +1,2 @@
+/home/user/Flutter/reinmkg/android/app/.cxx/Debug/3125e4i3/x86_64/CMakeFiles/edit_cache.dir
+/home/user/Flutter/reinmkg/android/app/.cxx/Debug/3125e4i3/x86_64/CMakeFiles/rebuild_cache.dir

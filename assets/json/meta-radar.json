@@ -1,0 +1,716 @@
+[
+    {
+        "overlayTLC": [
+            "7.788887280187721",
+            "93.25257071981228"
+        ],
+        "overlayBRC": [
+            "3.2936567198122795",
+            "97.74780128018772"
+        ],
+        "_id": "5fb3ca33b8f1857970d045f1",
+        "Kota": "Aceh",
+        "Stasiun": "Stasiun Meteorologi Blang Bintang Aceh",
+        "kode": "ACE",
+        "lat": 5.541272,
+        "lon": 95.500186,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-1.4642247198122793",
+            "125.84805471981227"
+        ],
+        "overlayBRC": [
+            "-5.95945528018772",
+            "130.3432852801877"
+        ],
+        "_id": "5fb3ca34b8f1857970d045f2",
+        "Kota": "Ambon",
+        "Stasiun": "Stasiun Meteorologi Klas II Pattimura Ambon",
+        "kode": "AMQ",
+        "lat": -3.71184,
+        "lon": 128.09566999999998,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "1.0846232801877207",
+            "133.8403967198123"
+        ],
+        "overlayBRC": [
+            "-3.4106072801877207",
+            "138.33562728018774"
+        ],
+        "_id": "5fb3ca34b8f1857970d045f3",
+        "Kota": "Biak",
+        "Stasiun": "Stasiun Meteorologi Frans Kaisiepo Biak",
+        "kode": "BIK",
+        "lat": -1.162992,
+        "lon": 136.08801200000002,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-1.213879719812279",
+            "112.59348471981228"
+        ],
+        "overlayBRC": [
+            "-5.709110280187721",
+            "117.08871528018771"
+        ],
+        "_id": "5fb3ca34b8f1857970d045f4",
+        "Kota": "Banjarmasin",
+        "Stasiun": "Stasiun Meteorologi Syamsuddin Noor Banjarmasin",
+        "kode": "BAN",
+        "lat": -3.4614949999999998,
+        "lon": 114.8411,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-1.6108177198122795",
+            "100.09358471981228"
+        ],
+        "overlayBRC": [
+            "-6.106048280187721",
+            "104.58881528018772"
+        ],
+        "_id": "5fb3ca34b8f1857970d045f5",
+        "Kota": "Bengkulu",
+        "Stasiun": "Stasiun Meteorologi Fatmawati Bengkulu",
+        "kode": "BKS",
+        "lat": -3.8584330000000002,
+        "lon": 102.3412,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "0.9878822801877207",
+            "114.64938471981229"
+        ],
+        "overlayBRC": [
+            "-3.5073482801877205",
+            "119.14461528018772"
+        ],
+        "_id": "5fb3ca34b8f1857970d045f6",
+        "Kota": "Balikpapan",
+        "Stasiun": "Stasiun Meteorologi Sepinggan Balikpapan",
+        "kode": "BAL",
+        "lat": -1.259733,
+        "lon": 116.897,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-3.9237287198122797",
+            "104.39898771981228"
+        ],
+        "overlayBRC": [
+            "-8.418959280187721",
+            "108.89421828018772"
+        ],
+        "_id": "5fb3ca34b8f1857970d045f7",
+        "Kota": "Tangerang",
+        "Stasiun": "Stasiun Meteorologi Cengkareng",
+        "kode": "JAK",
+        "lat": -6.171344,
+        "lon": 106.646603,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-6.491549719812279",
+            "112.93123971981228"
+        ],
+        "overlayBRC": [
+            "-10.98678028018772",
+            "117.42647028018771"
+        ],
+        "_id": "5fb3ca35b8f1857970d045f9",
+        "Kota": "Denpasar",
+        "Stasiun": "Balai Besar Wilayah III Denpasar",
+        "kode": "DEN",
+        "lat": -8.739165,
+        "lon": 115.178855,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "3.4120052801877208",
+            "95.45608171981227"
+        ],
+        "overlayBRC": [
+            "-1.0832252801877207",
+            "99.95131228018771"
+        ],
+        "_id": "5fb3ca36b8f1857970d045fa",
+        "Kota": "Nias",
+        "Stasiun": "Stasiun Meteorologi Binaka",
+        "kode": "GNS",
+        "lat": 1.16439,
+        "lon": 97.70369699999999,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "2.883615280187721",
+            "120.76298471981228"
+        ],
+        "overlayBRC": [
+            "-1.6116152801877206",
+            "125.25821528018771"
+        ],
+        "_id": "5fb3ca36b8f1857970d045fb",
+        "Kota": "Gorontalo",
+        "Stasiun": "Stasiun Meteorologi Jalaluddin Gorontalo",
+        "kode": "GOR",
+        "lat": 0.636,
+        "lon": 123.0106,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-0.3509847198122791",
+            "138.2801847198123"
+        ],
+        "overlayBRC": [
+            "-4.846215280187721",
+            "142.77541528018773"
+        ],
+        "_id": "5fb3ca36b8f1857970d045fc",
+        "Kota": "Sentani",
+        "Stasiun": "Stasiun Meteorologi Sentani Jayapura",
+        "kode": "JAY",
+        "lat": -2.5986,
+        "lon": 140.5278,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "0.6167152801877207",
+            "101.39458471981229"
+        ],
+        "overlayBRC": [
+            "-3.8785152801877207",
+            "105.88981528018772"
+        ],
+        "_id": "5fb3ca36b8f1857970d045fd",
+        "Kota": "Jambi",
+        "Stasiun": "Stasiun Meteorologi Sultan Thaha Jambi",
+        "kode": "DJB",
+        "lat": -1.6309,
+        "lon": 103.6422,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-5.484038019812279",
+            "108.10668631981227"
+        ],
+        "overlayBRC": [
+            "-9.979268580187721",
+            "112.6019168801877"
+        ],
+        "_id": "5fb3ca37b8f1857970d045fe",
+        "Kota": "Jogyakarta",
+        "Stasiun": "Stasiun Klimatologi Jogyakarta",
+        "kode": "YOG",
+        "lat": -7.7316533,
+        "lon": 110.35430159999999,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-1.8120787198122796",
+            "120.21238471981228"
+        ],
+        "overlayBRC": [
+            "-6.307309280187721",
+            "124.70761528018771"
+        ],
+        "_id": "5fb3ca37b8f1857970d045ff",
+        "Kota": "Kendari",
+        "Stasiun": "Stasiun Meteorologi Kendari",
+        "kode": "KEN",
+        "lat": -4.059694,
+        "lon": 122.46,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-7.970384719812279",
+            "121.37638471981228"
+        ],
+        "overlayBRC": [
+            "-12.46561528018772",
+            "125.87161528018771"
+        ],
+        "_id": "5fb3ca37b8f1857970d04600",
+        "Kota": "Kupang",
+        "Stasiun": "Stasiun Meteorologi Eltari Kupang",
+        "kode": "KPG",
+        "lat": -10.218,
+        "lon": 123.624,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-6.505440719812278",
+            "114.00182871981228"
+        ],
+        "overlayBRC": [
+            "-11.00067128018772",
+            "118.49705928018771"
+        ],
+        "_id": "5fb3ca37b8f1857970d04601",
+        "Kota": "Lombok",
+        "Stasiun": "Stasiun Meteorologi Selaparang Mataram",
+        "kode": "LOP",
+        "lat": -8.753055999999999,
+        "lon": 116.249444,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-2.9607727198122786",
+            "102.92757671981228"
+        ],
+        "overlayBRC": [
+            "-7.45600328018772",
+            "107.42280728018771"
+        ],
+        "_id": "5fb3ca37b8f1857970d04602",
+        "Kota": "Lampung",
+        "Stasiun": "Stasiun Meteorologi Radin Inten II",
+        "kode": "LPG",
+        "lat": -5.208387999999999,
+        "lon": 105.175192,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "5.787323280187721",
+            "96.38955071981229"
+        ],
+        "overlayBRC": [
+            "1.2920927198122794",
+            "100.88478128018772"
+        ],
+        "_id": "5fb3ca37b8f1857970d04603",
+        "Kota": "Medan",
+        "Stasiun": "Balai Besar Wilayah I Medan",
+        "kode": "MED",
+        "lat": 3.539708,
+        "lon": 98.63716600000001,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-1.3031607198122797",
+            "116.73292771981228"
+        ],
+        "overlayBRC": [
+            "-5.798391280187721",
+            "121.22815828018771"
+        ],
+        "_id": "5fb3ca37b8f1857970d04604",
+        "Kota": "Majene",
+        "Stasiun": "Stasiun Meteorologi Majene",
+        "kode": "MAJ",
+        "lat": -3.5507760000000004,
+        "lon": 118.980543,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-2.7501180198122794",
+            "117.32440171981227"
+        ],
+        "overlayBRC": [
+            "-7.245348580187721",
+            "121.8196322801877"
+        ],
+        "_id": "5fb3ca37b8f1857970d04605",
+        "Kota": "Makasar",
+        "Stasiun": "Stasiun Meteorologi Hasanuddin Mandai - Makasar",
+        "kode": "MRS",
+        "lat": -4.9977333,
+        "lon": 119.57201699999999,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "3.7484272801877205",
+            "122.67090171981228"
+        ],
+        "overlayBRC": [
+            "-0.7468032801877207",
+            "127.16613228018771"
+        ],
+        "_id": "5fb3ca38b8f1857970d04606",
+        "Kota": "Manado",
+        "Stasiun": "Stasiun Meteorologi Sam Ratulangi Manado",
+        "kode": "MND",
+        "lat": 1.500812,
+        "lon": 124.918517,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-6.364517719812279",
+            "119.95370171981227"
+        ],
+        "overlayBRC": [
+            "-10.85974828018772",
+            "124.4489322801877"
+        ],
+        "_id": "5fb3ca38b8f1857970d04607",
+        "Kota": "Maumere",
+        "Stasiun": "Stasiun Meteorologi Wai Otti Maumere",
+        "kode": "MAU",
+        "lat": -8.612133,
+        "lon": 122.20131699999999,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-6.270936719812279",
+            "138.1688877198123"
+        ],
+        "overlayBRC": [
+            "-10.76616728018772",
+            "142.66411828018772"
+        ],
+        "_id": "5fb3ca38b8f1857970d04608",
+        "Kota": "Merauke",
+        "Stasiun": "Stasiun Meteorologi Mopah Merauke",
+        "kode": "MER",
+        "lat": -8.518552,
+        "lon": 140.416503,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-0.3069447198122792",
+            "118.07636471981229"
+        ],
+        "overlayBRC": [
+            "-4.80217528018772",
+            "122.57159528018772"
+        ],
+        "_id": "5fb3ca38b8f1857970d04609",
+        "Kota": "Masamba",
+        "Stasiun": "Stasiun Meteorologi Masamba",
+        "kode": "MAS",
+        "lat": -2.55456,
+        "lon": 120.32398,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "1.4614152801877207",
+            "98.05748471981228"
+        ],
+        "overlayBRC": [
+            "-3.0338152801877207",
+            "102.55271528018771"
+        ],
+        "_id": "5fb3ca39b8f1857970d0460a",
+        "Kota": "Padang",
+        "Stasiun": "Stasiun Meteorologi Minangkabau",
+        "kode": "PDG",
+        "lat": -0.7862,
+        "lon": 100.3051,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-0.48894371981227946",
+            "109.39280071981227"
+        ],
+        "overlayBRC": [
+            "-4.984174280187721",
+            "113.8880312801877"
+        ],
+        "_id": "5fb3ca39b8f1857970d0460b",
+        "Kota": "Pangkalan Bun",
+        "Stasiun": "Stasiun Meteorologi Pangkalan Bun",
+        "kode": "PKN",
+        "lat": -2.736559,
+        "lon": 111.64041599999999,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "0.08611528018772052",
+            "103.88888471981228"
+        ],
+        "overlayBRC": [
+            "-4.409115280187721",
+            "108.38411528018771"
+        ],
+        "_id": "5fb3ca39b8f1857970d0460c",
+        "Kota": "Pangkal Pinang",
+        "Stasiun": "Stasiun Meteorologi Pangkal Pinang",
+        "kode": "PKP",
+        "lat": -2.1615,
+        "lon": 106.1365,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "2.7017152801877207",
+            "99.21648471981229"
+        ],
+        "overlayBRC": [
+            "-1.7935152801877208",
+            "103.71171528018772"
+        ],
+        "_id": "5fb3ca39b8f1857970d0460d",
+        "Kota": "Pekanbaru",
+        "Stasiun": "Stasiun Meteorologi Syarif Kasim II Pekanbaru",
+        "kode": "PEK",
+        "lat": 0.4541,
+        "lon": 101.4641,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-0.0036347198122794744",
+            "111.69721771981229"
+        ],
+        "overlayBRC": [
+            "-4.4988652801877205",
+            "116.19244828018772"
+        ],
+        "_id": "5fb3ca39b8f1857970d0460e",
+        "Kota": "Palangkaraya",
+        "Stasiun": "Stasiun Meteorologi Tjilik Riwut Palangkaraya",
+        "kode": "PKY",
+        "lat": -2.25125,
+        "lon": 113.944833,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-0.669828719812279",
+            "102.45494071981229"
+        ],
+        "overlayBRC": [
+            "-5.16505928018772",
+            "106.95017128018772"
+        ],
+        "_id": "5fb3ca39b8f1857970d0460f",
+        "Kota": "Palembang",
+        "Stasiun": "Stasiun Meteorologi SM Badaruddin II Palembang",
+        "kode": "PLB",
+        "lat": -2.9174439999999997,
+        "lon": 104.702556,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "1.5791152801877208",
+            "117.57128471981228"
+        ],
+        "overlayBRC": [
+            "-2.9161152801877206",
+            "122.06651528018772"
+        ],
+        "_id": "5fb3ca39b8f1857970d04610",
+        "Kota": "Palu",
+        "Stasiun": "Stasiun Meteorologi Mutiara Palu",
+        "kode": "PAL",
+        "lat": -0.6685,
+        "lon": 119.8189,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "2.1578052801877208",
+            "107.14564171981229"
+        ],
+        "overlayBRC": [
+            "-2.3374252801877207",
+            "111.64087228018772"
+        ],
+        "_id": "5fb3ca3ab8f1857970d04611",
+        "Kota": "Pontianak",
+        "Stasiun": "Stasiun Meteorologi Supadio Pontianak",
+        "kode": "PON",
+        "lat": -0.08981,
+        "lon": 109.393257,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-5.162649719812278",
+            "110.51281671981229"
+        ],
+        "overlayBRC": [
+            "-9.657880280187719",
+            "115.00804728018772"
+        ],
+        "_id": "5fb3ca3ab8f1857970d04612",
+        "Kota": "Surabaya",
+        "Stasiun": "Stasiun Meteorologi Juanda - Surabaya",
+        "kode": "SBY",
+        "lat": -7.410264999999999,
+        "lon": 112.76043200000001,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-4.7365517198122795",
+            "108.11988471981229"
+        ],
+        "overlayBRC": [
+            "-9.231782280187721",
+            "112.61511528018772"
+        ],
+        "_id": "5fb3ca3ab8f1857970d04613",
+        "Kota": "Semarang",
+        "Stasiun": "Stasiun Meteorologi Ahmad Yani Semarang",
+        "kode": "SMG",
+        "lat": -6.984167,
+        "lon": 110.3675,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "1.3572942801877208",
+            "129.0381657198123"
+        ],
+        "overlayBRC": [
+            "-3.137936280187721",
+            "133.53339628018773"
+        ],
+        "_id": "5fb3ca3ab8f1857970d04614",
+        "Kota": "Sorong",
+        "Stasiun": "Stasiun Meteorologi Jefman Sorong",
+        "kode": "SOR",
+        "lat": -0.8903209999999999,
+        "lon": 131.28578100000001,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "2.2049152801877208",
+            "109.2119447198123"
+        ],
+        "overlayBRC": [
+            "-2.2903152801877207",
+            "113.70717528018773"
+        ],
+        "_id": "5fb3ca3ab8f1857970d04615",
+        "Kota": "Sintang",
+        "Stasiun": "Stasiun Meteorologi Susilo Sintang",
+        "kode": "SIN",
+        "lat": -0.0427,
+        "lon": 111.45956000000001,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-2.2814297198122793",
+            "134.6456537198123"
+        ],
+        "overlayBRC": [
+            "-6.776660280187721",
+            "139.14088428018772"
+        ],
+        "_id": "5fb3ca3ab8f1857970d04616",
+        "Kota": "Timika",
+        "Stasiun": "Stasiun Meteorologi Timika",
+        "kode": "TIM",
+        "lat": -4.529045,
+        "lon": 136.893269,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "3.1033732801877205",
+            "125.09975371981228"
+        ],
+        "overlayBRC": [
+            "-1.3918572801877207",
+            "129.59498428018773"
+        ],
+        "_id": "5fb3ca3ab8f1857970d04617",
+        "Kota": "Ternate",
+        "Stasiun": "Stasiun Meteorologi Babullah Ternate",
+        "kode": "TTE",
+        "lat": 0.855758,
+        "lon": 127.347369,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "5.56093228018772",
+            "115.33372071981229"
+        ],
+        "overlayBRC": [
+            "1.065701719812279",
+            "119.82895128018772"
+        ],
+        "_id": "5fb3ca3bb8f1857970d04618",
+        "Kota": "Tarakan",
+        "Stasiun": "Stasiun Meteorologi Juwata Tarakan",
+        "kode": "TAR",
+        "lat": 3.3133169999999996,
+        "lon": 117.58133600000001,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-6.2842847198122795",
+            "116.45178471981228"
+        ],
+        "overlayBRC": [
+            "-10.77951528018772",
+            "120.94701528018771"
+        ],
+        "_id": "5ffe81c2e90f3013fe44d94f",
+        "Kota": "Bima",
+        "Stasiun": "Stasiun Meteorologi Salahudin Bima",
+        "kode": "BMA",
+        "lat": -8.5319,
+        "lon": 118.6994,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "3.3724162801877204",
+            "101.86413971981229"
+        ],
+        "overlayBRC": [
+            "-1.1228142801877208",
+            "106.35937028018772"
+        ],
+        "_id": "61b971e8e9557f0720ef5922",
+        "Kota": "Batam",
+        "Stasiun": "Stasiun Meteorologi Hang Nadim Batam",
+        "kode": "BTH",
+        "lat": 1.124801,
+        "lon": 104.111755,
+        "__v": 0
+    },
+    {
+        "overlayTLC": [
+            "-1.8408437198122796",
+            "136.69868871981228"
+        ],
+        "overlayBRC": [
+            "-6.336074280187721",
+            "141.1939192801877"
+        ],
+        "_id": "61fc528cf2aa320be621d26f",
+        "Kota": "Wamena",
+        "Stasiun": "Stasiun Meteorologi Wamena Jayawijaya",
+        "kode": "WAM",
+        "lat": -4.088459,
+        "lon": 138.946304,
+        "__v": 0
+    }
+]

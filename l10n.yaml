@@ -1,0 +1,14 @@
+# arb-dir: lib/core/localization
+# template-arb-file: app_en.arb
+# output-dir: lib/core/localization/generated
+# output-localization-file: strings.dart
+# output-class: Strings
+# synthetic-package: false
+
+arb-dir: lib/core/localization/l10n
+output-dir: lib/core/localization/l10n/generated
+template-arb-file: app_en.arb
+output-localization-file: strings.dart
+output-class: Strings
+synthetic-package: false
+nullable-getter: false

@@ -1,0 +1,1 @@
+export 'earthquake_pga_entity.dart';

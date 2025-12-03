@@ -1,0 +1,240 @@
+{
+    "@@locale": "id",
+    "version": "Versi {version}",
+    "@version": {
+        "placeholders": {
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "idText": "Indonesia",
+    "enText": "Inggris",
+    "languageText": "Bahasa",
+    "languageSelectionText": "Pilih Bahasa",
+    "languageFromLocale": "{locale, select, en{English} id{Indonesia} other{Tidak Diketahui}}",
+    "@languageFromLocale": {
+        "placeholders": {
+            "locale": {
+                "type": "String"
+            }
+        }
+    },
+    "unitText": "Satuan",
+    "unitSelectionTypeText": "Pilih Satuan",
+    "unitType": "{unit, select, true{Metrik} false{Imperial} other{Tidak Diketahui}}",
+    "@unitType": {
+        "placeholders": {
+            "unit": {
+                "type": "String"
+            }
+        }
+    },
+    "unitMetricExampleText": "Metrik (°C, kmpj)",
+    "unitImperialExampleText": "Imperial (°F, mpj)",
+    "generalSettingsText": "Pengaturan",
+    "waveCategoryCalm": "Tenang",
+    "waveCategoryLow": "Rendah",
+    "waveCategoryMedium": "Sedang",
+    "waveCategoryHigh": "Tinggi",
+    "waveCategoryVeryHigh": "Sangat Tinggi",
+    "waveCategoryExtreme": "Ekstrim",
+    "waveCategoryVeryExtreme": "Sangat Ekstrim",
+    "waveCategory": "{type, select, calm{Tenang} low{Rendah} medium{Sedang} high{Tinggi} veryHigh{Sangat Tinggi} extreme{Ekstrim} veryExtreme{Sangat Ekstrim} other{-}}",
+    "@waveCategory": {
+        "placeholders": {
+            "type": { "type": "String" }
+        }
+    },
+    "wtrClearSkies": "Cerah",
+    "wtrPartlyCloudy": "Sebagian Berawan",
+    "wtrMostlyCloudy": "Berawan",
+    "wtrOvercast": "Mendung",
+    "wtrHaze": "Kabut",
+    "wtrSmoke": "Asap",
+    "wtrFog": "Kabut",
+    "wtrLightRain": "Hujan Ringan",
+    "wtrRain": "Hujan",
+    "wtrHeavyRain": "Hujan Lebat",
+    "wtrIsolatedShower": "Hujan Singkat",
+    "wtrSevereThunderStorm": "Badai Petir Berat",
+    "wtrType": "{type, select, clearSkies{Cerah} partlyCloudy{Sebagian Berawan} mostlyCloudy{Berawan} overcast{Mendung} haze{Kabut} smoke{Asap} fog{Kabut} lightRain{Hujan Ringan} rain{Hujan} heavyRain{Hujan Lebat} isolatedShower{Hujan Singkat} severeThunderStorm{Badai Petir Berat} other{Tidak Diketahui}}",
+    "@wtrType": {
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "wdirType": "{type, select, north{Utara} northEast{Timur Laut} east{Timur} southEast{Tenggara} south{Selatan} southWest{Barat Daya} west{Barat} northWest{Barat Laut} other{-}}",
+    "@wdirType": {
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "dashboardNowLabel": "Sekarang",
+    "forecastWeatherLabel": "Prakiraan Cuaca",
+    "dailyForecastLabel": "Prakiraan Harian",
+    "radarLabel": "Radar",
+    "satelliteLabel": "Satelit",
+    "nowcastLabel": "Nowcast",
+    "maritimeLabel": "Maritim",
+    "earthquakeFeltTitle": "Dirasakan",
+    "earthquakeFelt": "Gempa dirasakan",
+    "earthquakeRealtime": "Gempa Terkini",
+    "realtimeTitle": "Waktu Nyata",
+    "earthquakeMagnitude": "Magnitudo",
+    "earthquakeDepth": "Kedalaman",
+    "earthquakeTime": "Waktu",
+    "unitKm": "Km",
+    "unitMiles": "Miles",
+    "magnitudeUnit": "SR",
+    "seismicStation": "Stasiun: {station}",
+    "@seismicStation": {
+        "placeholders": {
+            "station": { "type": "String" }
+        }
+    },
+    "seismicEpicenter": "Epicenter Gempa\n{value}",
+    "@seismicEpicenter": {
+        "placeholders": {
+            "value": { "type": "String" }
+        }
+    },
+    "seismicPga": "PGA: {value}",
+    "@seismicPga": {
+        "placeholders": {
+            "value": { "type": "String" }
+        }
+    },
+    "seismicPgv": "PGV: {value}",
+    "@seismicPgv": {
+        "placeholders": {
+            "value": { "type": "String" }
+        }
+    },
+    "seismicMmi": "MMI: {value}",
+    "@seismicMmi": {
+        "placeholders": {
+            "value": { "type": "String" }
+        }
+    },
+    "earthquakeFeltInRegency": "Gempa dirasakan di {regency}",
+    "@earthquakeFeltInRegency": {
+        "placeholders": {
+            "regency": {
+                "type": "String"
+            }
+        }
+    },
+    "weatherAlertIssuedForRegency": "Peringatan dini cuaca untuk {regency} telah diterbitkan",
+    "@weatherAlertIssuedForRegency": {
+        "placeholders": {
+            "regency": {
+                "type": "String"
+            }
+        }
+    },
+    "fromSubdistrict": "dari {subdistrict}",
+    "@fromSubdistrict": {
+        "placeholders": {
+            "subdistrict": {
+                "type": "String"
+            }
+        }
+    },
+    "maritimeLoadError": "Gagal memuat data cuaca maritim",
+    "maritimeDayLabelToday": "Hari ini",
+    "maritimeDayLabelHPlus": "H+{n}",
+    "@maritimeDayLabelHPlus": {
+        "placeholders": {
+            "n": { "type": "int" }
+        }
+    },
+    "noDetailsAvailable": "Tidak ada detail tersedia",
+    "validFromTo": "Berlaku mulai {from}\nhingga {to}",
+    "@validFromTo": {
+        "placeholders": {
+            "from": { "type": "String" },
+            "to": { "type": "String" }
+        }
+    },
+    "humidityLabel": "Kelembapan",
+    "windDirectionLabel": "Arah Angin",
+    "windLabel": "Angin",
+    "earthquakeFeltAreaLabel": "Daerah Terasa",
+    "coordinateLabel": "Koordinat",
+    "descriptionLabel": "Deskripsi",
+    "instructionLabel": "Instruksi",
+    "distanceLabel": "Jarak",
+    "legendLabel": "Legenda",
+    "eventIdNotAvailable": "ID kejadian tidak tersedia",
+    "tsunamiLabel": "Tsunami",
+    "tsunamiWarningZonesLabel": "Zona Peringatan",
+    "tsunamiWarningInfoAvailable": "Informasi peringatan tersedia",
+    "tsunamiNoWarningData": "Tidak ada data peringatan tsunami",
+    "eqType": "{type, select, felt{Dirasakan} realtime{Terkini} overFive{M > 5} tsunami{Tsunami} other{Tidak diketahui}}",
+    "@eqType": {
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "showLessLabel": "Tampilkan lebih sedikit",
+    "showMoreCount": "Tampilkan {count} lagi",
+    "@showMoreCount": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "mapLabelWZ": "Peta WZ",
+    "mapLabelTT": "Peta TT",
+    "mapLabelSSM": "Peta SSM",
+    "warningPrefix": "Peringatan",
+    "licensesSectionTitle": "Lisensi",
+    "appLicenseTitle": "Lisensi Aplikasi",
+    "opensourceLicenseTitle": "Lisensi Opensource",
+    "mapTileAttribution": "Esri, HERE, Garmin, (c) OpenStreetMap contributors, and the GIS user community",
+    "celestialDataLabel": "Data Benda Langit",
+    "sunLabel": "Matahari",
+    "sunriseLabel": "Terbit Matahari",
+    "sunsetLabel": "Terbenam Matahari",
+    "moonLabel": "Bulan",
+    "moonriseLabel": "Terbit Bulan",
+    "moonsetLabel": "Terbenam Bulan",
+    "notAvailableLabel": "Tidak tersedia",
+    "moonPhaseNew": "Bulan Baru",
+    "moonPhaseWaxingCrescent": "Bulan Sabit Meningkat",
+    "moonPhaseFirstQuarter": "Kuartal Pertama",
+    "moonPhaseWaxingGibbous": "Bulan Cembung Meningkat",
+    "moonPhaseFullMoon": "Bulan Purnama",
+    "moonPhaseWaningGibbous": "Bulan Cembung Menurun",
+    "moonPhaseLastQuarter": "Kuartal Terakhir",
+    "moonPhaseWaningCrescent": "Bulan Sabit Menurun",
+    "moonPhaseIlluminatedPercent": "{percent}% Terang",
+    "@moonPhaseIlluminatedPercent": {
+        "placeholders": {
+            "percent": {
+                "type": "int"
+            }
+        }
+    },
+    "unitMeter": "m",
+    "unitFeet": "ft",
+    "dash": "-",
+    "emdash": "—",
+    "validFrom": "Berlaku Mulai",
+    "validUntil": "Berlaku Hingga",
+    "affectedDistricts": "Area Terdampak",
+    "spreadDistricts": "Area Sebaran",
+    "event": "Peristiwa",
+    "severity": "Tingkat Keparahan",
+    "category": "Kategori",
+    "tags": "Tag",
+    "source": "Sumber"
+}

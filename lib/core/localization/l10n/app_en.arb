@@ -1,0 +1,226 @@
+{
+    "@@locale": "en",
+    "version": "Version {version}",
+    "@version": {
+        "placeholders": {
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "idText": "Indonesian",
+    "enText": "English",
+    "languageText": "Language",
+    "languageSelectionText": "Select Language",
+    "languageFromLocale": "{locale, select, en{English} id{Indonesia} other{Unknown}}",
+    "@languageFromLocale": {
+        "placeholders": {
+            "locale": {
+                "type": "String"
+            }
+        }
+    },
+    "unitText": "Unit",
+    "unitSelectionTypeText": "Select Unit",
+    "unitType": "{unit, select, true{Metric} false{Imperial} other{Unknown}}",
+    "@unitType": {
+        "placeholders": {
+            "unit": {
+                "type": "String"
+            }
+        }
+    },
+    "unitMetricExampleText": "Metric (°C, kmph)",
+    "unitImperialExampleText": "Imperial (°F, mph)",
+    "generalSettingsText": "General Settings",
+    "waveCategoryCalm": "Calm",
+    "waveCategoryLow": "Low",
+    "waveCategoryMedium": "Moderate",
+    "waveCategoryHigh": "High",
+    "waveCategoryVeryHigh": "Very High",
+    "waveCategoryExtreme": "Extreme",
+    "waveCategoryVeryExtreme": "Very Extreme",
+    "waveCategory": "{type, select, calm{Calm} low{Low} medium{Moderate} high{High} veryHigh{Very High} extreme{Extreme} veryExtreme{Very Extreme} other{-}}",
+    "@waveCategory": {
+        "placeholders": {
+            "type": { "type": "String" }
+        }
+    },
+    "wtrClearSkies": "Clear Sky",
+    "wtrPartlyCloudy": "Partly Cloudy",
+    "wtrMostlyCloudy": "Mostly Cloudy",
+    "wtrOvercast": "Overcast",
+    "wtrHaze": "Haze",
+    "wtrSmoke": "Smoke",
+    "wtrFog": "Fog",
+    "wtrLightRain": "Light Rain",
+    "wtrRain": "Rain",
+    "wtrHeavyRain": "Heavy Rain",
+    "wtrIsolatedShower": "Isolated Shower",
+    "wtrSevereThunderStorm": "Severe Thunder Storm",
+    "wtrType": "{type, select, clearSkies{Clear Sky} partlyCloudy{Partly Cloudy} mostlyCloudy{Mostly Cloudy} overcast{Overcast} haze{Haze} smoke{Smoke} fog{Fog} lightRain{Light Rain} rain{Rain} heavyRain{Heavy Rain} isolatedShower{Isolated Shower} severeThunderStorm{Severe Thunder Storm} other{Unknown}}",
+    "@wtrType": {
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "wdirType": "{type, select, north{North} northEast{North East} east{East} southEast{South East} south{South} southWest{South West} west{West} northWest{North West} other{-}}",
+    "@wdirType": {
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "dashboardNowLabel": "Now",
+    "forecastWeatherLabel": "Weather Forecast",
+    "dailyForecastLabel": "Daily Forecast",
+    "radarLabel": "Radar",
+    "satelliteLabel": "Satellite",
+    "nowcastLabel": "Nowcast",
+    "maritimeLabel": "Maritime",
+    "earthquakeFeltTitle": "Felt",
+    "earthquakeFelt": "Earthquake felt",
+    "earthquakeRealtime": "Realtime Earthquake",
+    "realtimeTitle": "Realtime",
+    "earthquakeMagnitude": "Magnitude",
+    "earthquakeDepth": "Depth",
+    "earthquakeTime": "Time",
+    "unitKm": "km",
+    "unitMiles": "miles",
+    "magnitudeUnit": "SR",
+    "seismicStation": "Station: {station}",
+    "@seismicStation": {
+        "placeholders": {
+            "station": { "type": "String" }
+        }
+    },
+    "seismicEpicenter": "Earthquake Epicenter\n{value}",
+    "@seismicEpicenter": {
+        "placeholders": {
+            "value": { "type": "String" }
+        }
+    },
+    "seismicPga": "PGA: {value}",
+    "@seismicPga": {
+        "placeholders": {
+            "value": { "type": "String" }
+        }
+    },
+    "seismicPgv": "PGV: {value}",
+    "@seismicPgv": {
+        "placeholders": {
+            "value": { "type": "String" }
+        }
+    },
+    "seismicMmi": "MMI: {value}",
+    "@seismicMmi": {
+        "placeholders": {
+            "value": { "type": "String" }
+        }
+    },
+    "earthquakeFeltInRegency": "Earthquake felt in {regency}",
+    "@earthquakeFeltInRegency": {
+        "placeholders": {
+            "regency": { "type": "String" }
+        }
+    },
+    "weatherAlertIssuedForRegency": "Early weather alert for {regency} has been issued",
+    "@weatherAlertIssuedForRegency": {
+        "placeholders": {
+            "regency": { "type": "String" }
+        }
+    },
+    "fromSubdistrict": "from {subdistrict}",
+    "@fromSubdistrict": {
+        "placeholders": {
+            "subdistrict": { "type": "String" }
+        }
+    },
+    "maritimeLoadError": "Failed to load maritime weather data",
+    "maritimeDayLabelToday": "Today",
+    "maritimeDayLabelHPlus": "H+{n}",
+    "@maritimeDayLabelHPlus": {
+        "placeholders": {
+            "n": { "type": "int" }
+        }
+    },
+    "noDetailsAvailable": "No details available",
+    "validFromTo": "Valid from {from}\nuntil {to}",
+    "@validFromTo": {
+        "placeholders": {
+            "from": { "type": "String" },
+            "to": { "type": "String" }
+        }
+    },
+    "humidityLabel": "Humidity",
+    "windDirectionLabel": "Wind Direction",
+    "windLabel": "Wind"
+    ,
+    "earthquakeFeltAreaLabel": "Felt Area",
+    "coordinateLabel": "Coordinate",
+    "descriptionLabel": "Description",
+    "instructionLabel": "Instruction",
+    "distanceLabel": "Distance",
+    "legendLabel": "Legend",
+    "eventIdNotAvailable": "Event id not available",
+    "tsunamiLabel": "Tsunami",
+    "tsunamiWarningZonesLabel": "Warning Zones",
+    "tsunamiWarningInfoAvailable": "Warning information available",
+    "tsunamiNoWarningData": "No tsunami warning data",
+    "eqType": "{type, select, felt{Felt} realtime{Realtime} overFive{M > 5} tsunami{Tsunami} other{Unknown}}",
+    "@eqType": {
+        "placeholders": {
+            "type": {"type": "String"}
+        }
+    },
+    "showLessLabel": "Show less",
+    "showMoreCount": "Show {count} more",
+    "@showMoreCount": {"placeholders": {"count": {"type": "int"}}},
+    "mapLabelWZ": "WZ Map",
+    "mapLabelTT": "TT Map",
+    "mapLabelSSM": "SSM Map",
+    "warningPrefix": "Warning"
+    ,
+    "licensesSectionTitle": "Licenses",
+    "appLicenseTitle": "App License",
+    "opensourceLicenseTitle": "Open-source Licenses"
+    ,
+    "mapTileAttribution": "Esri, HERE, Garmin, (c) OpenStreetMap contributors, and the GIS user community"
+    ,
+    "celestialDataLabel": "Celestial Data",
+    "sunLabel": "Sun",
+    "sunriseLabel": "Sunrise",
+    "sunsetLabel": "Sunset",
+    "moonLabel": "Moon",
+    "moonriseLabel": "Moonrise",
+    "moonsetLabel": "Moonset",
+    "notAvailableLabel": "Not available"
+    ,
+    "moonPhaseNew": "New Moon",
+    "moonPhaseWaxingCrescent": "Waxing Crescent",
+    "moonPhaseFirstQuarter": "First Quarter",
+    "moonPhaseWaxingGibbous": "Waxing Gibbous",
+    "moonPhaseFullMoon": "Full Moon",
+    "moonPhaseWaningGibbous": "Waning Gibbous",
+    "moonPhaseLastQuarter": "Last Quarter",
+    "moonPhaseWaningCrescent": "Waning Crescent",
+    "moonPhaseIlluminatedPercent": "{percent}% Illuminated",
+    "@moonPhaseIlluminatedPercent": {"placeholders": {"percent": {"type": "int"}}}
+    ,
+    "unitMeter": "m",
+    "unitFeet": "ft",
+    "dash": "-",
+    "emdash": "—",
+    "validFrom": "Valid From",
+    "validUntil": "Valid Until",
+    "affectedDistricts": "Affected Area",
+    "spreadDistricts": "Spread Area",
+    "event": "Event",
+    "severity": "Severity",
+    "category": "Category",
+    "tags": "Tags",
+    "source": "Source"
+}

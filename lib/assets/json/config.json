@@ -1,0 +1,9 @@
+{
+    "mapbox_api":"https://api.mapbox.com/styles/v1/aruya/cl5kfzlcj002j14s0axw31e8y/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYXJ1eWEiLCJhIjoiY2w1ajR2Nmp5MDJqYTNjb2ZwNnZsMGw5biJ9.d36Vld6Pki0btxmHIQ4gzg",
+    "mybox_api_token": "sk.eyJ1IjoiYXJ1eWEiLCJhIjoiY2w2YTUwaWIwMDR3MTNpcWx4dnk5YWRudCJ9.1D8hYvoNakf_76NYxqflRA",
+    "gempa_dirasakan_api":"https://test-pusjarkom.my.id/api/list-gempadirasakan",
+    "gempa_5_api":"https://test-pusjarkom.my.id/api/list-gempa",
+    "gempa_terakhir":"https://test-pusjarkom.my.id/api/gempa",
+    "gempa_realtime_api":"https://test-pusjarkom.my.id/storage/gempabumi/live30event.xml"
+    
+}

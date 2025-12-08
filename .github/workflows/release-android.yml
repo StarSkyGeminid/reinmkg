@@ -57,6 +57,9 @@ jobs:
       - name: Build APKs (split per ABI, release)
         run: flutter build apk --release --split-per-abi
 
+      - name: Build universal APK (release)
+        run: flutter build apk --release
+
       - name: Set tag and version
         id: vars
         run: |
@@ -70,10 +73,17 @@ jobs:
           VERSION=${{ steps.vars.outputs.VERSION }}
           TAG=${{ steps.vars.outputs.TAG }}
           mkdir -p release_artifacts
-          # Copy split APKs produced by Flutter and normalize ABI names
+          # Copy universal APK if present
+          if [ -f build/app/outputs/flutter-apk/app-release.apk ]; then
+            cp build/app/outputs/flutter-apk/app-release.apk "release_artifacts/ReinMKG-${TAG}.apk"
+          fi
+          # Copy split APKs produced by Flutter and normalize ABI names (skip universal)
           for f in build/app/outputs/flutter-apk/*-release.apk; do
             [ -f "$f" ] || continue
             base=$(basename "$f")
+            if [ "$base" = "app-release.apk" ]; then
+              continue
+            fi
             abi=${base#app-}
             abi=${abi%-release.apk}
             case "$abi" in
@@ -104,9 +114,7 @@ jobs:
           fi
 
           # Write header + tag description
-          echo "# Release ${TAG}" > release_artifacts/changelog-${VERSION}.md
-          echo "" >> release_artifacts/changelog-${VERSION}.md
-          echo "## Tag description" >> release_artifacts/changelog-${VERSION}.md
+          echo "## Update description" >> release_artifacts/changelog-${VERSION}.md
           echo "" >> release_artifacts/changelog-${VERSION}.md
           printf "%s\n" "$TAG_MSG" >> release_artifacts/changelog-${VERSION}.md
           echo "" >> release_artifacts/changelog-${VERSION}.md
@@ -141,7 +149,7 @@ jobs:
           
           # Path artifacts
           bodyFile: release_artifacts/changelog-${{ steps.vars.outputs.VERSION }}.md
-          artifacts: "release_artifacts/*.apk,release_artifacts/*.md"
+          artifacts: "release_artifacts/*.apk"
 
       - name: Clean up keystore
         if: always()

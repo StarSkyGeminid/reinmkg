@@ -83,7 +83,7 @@ jobs:
               x86) abi_label=x86;;
               *) abi_label=$abi;;
             esac
-            cp "$f" "release_artifacts/ReinMKG-${TAG}-${abi_label}.apk"
+            mv "$f" "release_artifacts/ReinMKG-${TAG}-${abi_label}.apk"
           done
 
       - name: Generate changelog from tag and commits

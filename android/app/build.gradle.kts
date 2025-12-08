@@ -40,12 +40,15 @@ android {
         versionName = flutter.versionName
     }
 
-    signingConfigs {
-        create("release") {
-            keyAlias = keystoreProperties.getProperty("keyAlias", "androiddebugkey")
-            keyPassword = keystoreProperties.getProperty("keyPassword", "android")
-            storeFile = file(keystoreProperties.getProperty("storeFile", "key.jks"))
-            storePassword = keystoreProperties.getProperty("storePassword", "android")
+    if (keystorePropertiesFile.exists()) {
+        signingConfigs {
+            create("release") {
+                keyAlias = keystoreProperties.getProperty("keyAlias", "androiddebugkey")
+                keyPassword = keystoreProperties.getProperty("keyPassword", "android")
+                val storeFilePath = keystoreProperties.getProperty("storeFile", "key.jks")
+                storeFile = file(storeFilePath)
+                storePassword = keystoreProperties.getProperty("storePassword", "android")
+            }
         }
     }
 

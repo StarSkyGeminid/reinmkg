@@ -129,12 +129,19 @@ jobs:
       - name: Create GitHub Release and attach artifacts
         uses: ncipollo/release-action@v1
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
           tag: ${{ steps.vars.outputs.TAG }}
           name: Release ${{ steps.vars.outputs.TAG }}
-          body_path: release_artifacts/changelog-${{ steps.vars.outputs.VERSION }}.md
-          files: release_artifacts/ReinMKG-${{ steps.vars.outputs.TAG }}-arm64.apk,release_artifacts/ReinMKG-${{ steps.vars.outputs.TAG }}.apk,release_artifacts/changelog-${{ steps.vars.outputs.VERSION }}.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+          allowUpdates: true
+          
+          draft: false
+          makeLatest: true
+          
+          # Path artifacts
+          bodyFile: release_artifacts/changelog-${{ steps.vars.outputs.VERSION }}.md
+          artifacts: "release_artifacts/*.apk,release_artifacts/*.md"
 
       - name: Clean up keystore
         if: always()

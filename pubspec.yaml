@@ -3,7 +3,7 @@ description: "InfoBMKG Remake - A weather application providing weather informat
 
 publish_to: "none"
 
-version: 1.0.0+1
+version: 0.0.1+1
 
 environment:
   sdk: ^3.9.2

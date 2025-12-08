@@ -1,0 +1,131 @@
+name: Android Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.4'
+
+      - name: Decode Android keystore
+        if: ${{ secrets.ANDROID_KEYSTORE }}
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > key.jks
+
+      - name: Create key.properties
+        run: |
+          cat > key.properties <<EOF
+          storePassword=${{ secrets.ANDROID_STORE_PASSWORD }}
+          keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
+          keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}
+          storeFile=key.jks
+          EOF
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APKs (split per ABI, release)
+        run: flutter build apk --release --split-per-abi
+
+      - name: Set tag and version
+        id: vars
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          VERSION=${TAG#v}
+          echo "TAG=$TAG" >> $GITHUB_OUTPUT
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Prepare split-ABI APK artifacts with versioned names
+        run: |
+          VERSION=${{ steps.vars.outputs.VERSION }}
+          TAG=${{ steps.vars.outputs.TAG }}
+          mkdir -p release_artifacts
+          # Copy split APKs produced by Flutter and normalize ABI names
+          for f in build/app/outputs/flutter-apk/*-release.apk; do
+            [ -f "$f" ] || continue
+            base=$(basename "$f")
+            abi=${base#app-}
+            abi=${abi%-release.apk}
+            case "$abi" in
+              arm64-v8a) abi_label=arm64;;
+              armeabi-v7a) abi_label=armeabi-v7a;;
+              x86_64) abi_label=x86_64;;
+              x86) abi_label=x86;;
+              *) abi_label=$abi;;
+            esac
+            cp "$f" "release_artifacts/ReinMKG-${TAG}-${abi_label}.apk"
+          done
+
+      - name: Generate changelog from tag and commits
+        run: |
+          TAG=${{ steps.vars.outputs.TAG }}
+          VERSION=${{ steps.vars.outputs.VERSION }}
+          git fetch --prune --unshallow --tags || true
+          # find previous tag (most recent tag that's not the current one)
+          PREV_TAG=$(git tag --sort=-creatordate | grep -v "^${TAG}$" | sed -n '1p' || true)
+
+          # Try to extract tag message (works for annotated tags and falls back to commit message)
+          TAG_MSG=$(git cat-file -p "${TAG}" 2>/dev/null | sed '1,/^$/d' || true)
+          if [ -z "$TAG_MSG" ]; then
+            TAG_MSG=$(git log -1 --pretty=%B "${TAG}" 2>/dev/null || true)
+          fi
+          if [ -z "$TAG_MSG" ]; then
+            TAG_MSG="(no tag description)"
+          fi
+
+          # Write header + tag description
+          echo "# Release ${TAG}" > release_artifacts/changelog-${VERSION}.md
+          echo "" >> release_artifacts/changelog-${VERSION}.md
+          echo "## Tag description" >> release_artifacts/changelog-${VERSION}.md
+          echo "" >> release_artifacts/changelog-${VERSION}.md
+          printf "%s\n" "$TAG_MSG" >> release_artifacts/changelog-${VERSION}.md
+          echo "" >> release_artifacts/changelog-${VERSION}.md
+          echo "## Changes" >> release_artifacts/changelog-${VERSION}.md
+          echo "" >> release_artifacts/changelog-${VERSION}.md
+
+          # Append commit list between previous tag and current tag (or the commits on the tag if no previous tag)
+          if [ -n "$PREV_TAG" ]; then
+            git log --pretty=format:'- %s (%an)' ${PREV_TAG}..${TAG} >> release_artifacts/changelog-${VERSION}.md
+          else
+            git log --pretty=format:'- %s (%an)' ${TAG} >> release_artifacts/changelog-${VERSION}.md
+          fi
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ steps.vars.outputs.VERSION }}
+          path: release_artifacts/*
+
+      - name: Create GitHub Release and attach artifacts
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.vars.outputs.TAG }}
+          name: Release ${{ steps.vars.outputs.TAG }}
+          body_path: release_artifacts/changelog-${{ steps.vars.outputs.VERSION }}.md
+          files: release_artifacts/ReinMKG-${{ steps.vars.outputs.TAG }}-arm64.apk,release_artifacts/ReinMKG-${{ steps.vars.outputs.TAG }}.apk,release_artifacts/changelog-${{ steps.vars.outputs.VERSION }}.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clean up keystore
+        if: always()
+        run: |
+          rm -f key.jks || true
+          rm -f key.properties || true

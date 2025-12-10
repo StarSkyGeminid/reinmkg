@@ -60,6 +60,9 @@ jobs:
       - name: Build universal APK (release)
         run: flutter build apk --release
 
+      - name: Build AAB (release)
+        run: flutter build appbundle --release
+
       - name: Set tag and version
         id: vars
         run: |
@@ -68,7 +71,7 @@ jobs:
           echo "TAG=$TAG" >> $GITHUB_OUTPUT
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Prepare split-ABI APK artifacts with versioned names
+      - name: Prepare split-ABI APK and AAB artifacts with versioned names
         run: |
           VERSION=${{ steps.vars.outputs.VERSION }}
           TAG=${{ steps.vars.outputs.TAG }}
@@ -76,6 +79,12 @@ jobs:
           # Copy universal APK if present
           if [ -f build/app/outputs/flutter-apk/app-release.apk ]; then
             cp build/app/outputs/flutter-apk/app-release.apk "release_artifacts/ReinMKG-${TAG}.apk"
+          fi
+          # Copy AAB if present
+          if ls build/app/outputs/bundle/release/*.aab 1> /dev/null 2>&1; then
+            for f in build/app/outputs/bundle/release/*.aab; do
+              mv "$f" "release_artifacts/ReinMKG-${TAG}.aab"
+            done
           fi
           # Copy split APKs produced by Flutter and normalize ABI names (skip universal)
           for f in build/app/outputs/flutter-apk/*-release.apk; do
@@ -123,9 +132,9 @@ jobs:
 
           # Append commit list between previous tag and current tag (or the commits on the tag if no previous tag)
           if [ -n "$PREV_TAG" ]; then
-            git log --pretty=format:'- %s (%an)' ${PREV_TAG}..${TAG} >> release_artifacts/changelog-${VERSION}.md
+            git log --pretty=format:'- %s' ${PREV_TAG}..${TAG} >> release_artifacts/changelog-${VERSION}.md
           else
-            git log --pretty=format:'- %s (%an)' ${TAG} >> release_artifacts/changelog-${VERSION}.md
+            git log --pretty=format:'- %s' ${TAG} >> release_artifacts/changelog-${VERSION}.md
           fi
 
       - name: Upload artifacts
@@ -138,18 +147,18 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          
+
           tag: ${{ steps.vars.outputs.TAG }}
           name: Release ${{ steps.vars.outputs.TAG }}
-          
+
           allowUpdates: true
-          
+
           draft: false
           makeLatest: true
-          
+
           # Path artifacts
           bodyFile: release_artifacts/changelog-${{ steps.vars.outputs.VERSION }}.md
-          artifacts: "release_artifacts/*.apk"
+          artifacts: "release_artifacts/*"
 
       - name: Clean up keystore
         if: always()

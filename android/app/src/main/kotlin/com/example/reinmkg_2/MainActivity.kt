@@ -1,4 +1,4 @@
-package com.example.reinmkg
+package com.starskygeminid.reiinmkg
 
 import io.flutter.embedding.android.FlutterActivity
 

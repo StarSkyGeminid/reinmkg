@@ -16,7 +16,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.example.reinmkg"
+    namespace = "com.starskygeminid.reiinmkg"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

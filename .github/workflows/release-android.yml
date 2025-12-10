@@ -7,7 +7,7 @@ permissions:
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build:
@@ -26,13 +26,13 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '21'
+          distribution: "temurin"
+          java-version: "21"
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.4'
+          flutter-version: "3.35.4"
 
       - name: Decode Android keystore
         run: |
@@ -44,12 +44,10 @@ jobs:
 
       - name: Create android/key.properties
         run: |
-          cat > android/key.properties <<EOF
-          storePassword=${ANDROID_STORE_PASSWORD}
-          keyPassword=${ANDROID_KEY_PASSWORD}
-          keyAlias=${ANDROID_KEY_ALIAS}
-          storeFile=key.jks
-          EOF
+          echo "storePassword=${ANDROID_STORE_PASSWORD}" > android/key.properties
+          echo "keyPassword=${ANDROID_KEY_PASSWORD}" >> android/key.properties
+          echo "keyAlias=${ANDROID_KEY_ALIAS}" >> android/key.properties
+          echo "storeFile=key.jks" >> android/key.properties
 
       - name: Install dependencies
         run: flutter pub get

@@ -37,14 +37,14 @@ jobs:
       - name: Decode Android keystore
         run: |
           if [ -n "${ANDROID_KEYSTORE}" ]; then
-            echo "$ANDROID_KEYSTORE" | base64 --decode > key.jks
+            echo "$ANDROID_KEYSTORE" | base64 --decode > android/key.jks
           else
             echo "No keystore provided; skipping keystore decode."
           fi
 
-      - name: Create key.properties
+      - name: Create android/key.properties
         run: |
-          cat > key.properties <<EOF
+          cat > android/key.properties <<EOF
           storePassword=${ANDROID_STORE_PASSWORD}
           keyPassword=${ANDROID_KEY_PASSWORD}
           keyAlias=${ANDROID_KEY_ALIAS}

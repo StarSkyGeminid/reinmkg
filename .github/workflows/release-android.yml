@@ -49,6 +49,35 @@ jobs:
           echo "keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
 
+      - name: Validate keystore and properties
+        run: |
+          echo "Validating keystore and key properties..."
+          # Fail early if any secret is missing
+          if [ -z "${ANDROID_KEYSTORE}" ] || [ -z "${ANDROID_STORE_PASSWORD}" ] || [ -z "${ANDROID_KEY_PASSWORD}" ] || [ -z "${ANDROID_KEY_ALIAS}" ]; then
+            echo "ERROR: One or more Android keystore secrets are missing.\nCheck ANDROID_KEYSTORE, ANDROID_STORE_PASSWORD, ANDROID_KEY_PASSWORD, ANDROID_KEY_ALIAS." >&2
+            echo "Listing files for debug:" >&2
+            ls -l android || true
+            echo "Contents of android/key.properties:" >&2
+            sed -n '1,200p' android/key.properties || true
+            exit 1
+          fi
+
+          # Ensure the keystore file exists and is non-empty
+          if [ ! -s android/app/key.jks ]; then
+            echo "ERROR: Keystore file android/app/key.jks is missing or empty." >&2
+            ls -l android/app || true
+            exit 1
+          fi
+
+          # Try to list the keystore contents to validate passwords/alias. This will fail with a clear message if password/alias incorrect.
+          set -o pipefail
+          keytool -list -v -keystore android/app/key.jks -storepass "${ANDROID_STORE_PASSWORD}" -keypass "${ANDROID_KEY_PASSWORD}" -alias "${ANDROID_KEY_ALIAS}" 2>&1 | sed -n '1,200p'
+          status=$?
+          if [ $status -ne 0 ]; then
+            echo "ERROR: keytool failed to read the keystore with provided passwords/alias (exit $status)." >&2
+            exit $status
+          fi
+
       - name: Install dependencies
         run: flutter pub get
 
@@ -161,5 +190,5 @@ jobs:
       - name: Clean up keystore
         if: always()
         run: |
-          rm -f key.jks || true
-          rm -f key.properties || true
+          rm -f android/app/key.jks || true
+          rm -f android/key.properties || true

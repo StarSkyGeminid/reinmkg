@@ -44,9 +44,9 @@ jobs:
 
       - name: Create android/key.properties
         run: |
-          echo "storePassword=${ANDROID_STORE_PASSWORD}" > android/key.properties
-          echo "keyPassword=${ANDROID_KEY_PASSWORD}" >> android/key.properties
-          echo "keyAlias=${ANDROID_KEY_ALIAS}" >> android/key.properties
+          echo "storePassword=${{ secrets.ANDROID_STORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
 
       - name: Install dependencies

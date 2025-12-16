@@ -104,17 +104,17 @@ class _NowcastPageState extends State<NowcastPage> {
           mapController: _controller,
           onMapReady: _moveToUserPosition,
           children: [
+            WarningAreaMarker(
+              onTap: (nowcast) {
+                _showNowcastBottomSheet(nowcast);
+              },
+            ),
             const SafeArea(child: CircularBackButton()),
             RichAttributionWidget(
               showFlutterMapAttribution: false,
               attributions: [
                 TextSourceAttribution(Strings.of(context).mapTileAttribution),
               ],
-            ),
-            WarningAreaMarker(
-              onTap: (nowcast) {
-                _showNowcastBottomSheet(nowcast);
-              },
             ),
           ],
         ),

@@ -39,7 +39,8 @@ jobs:
             exit 1
           fi
 
-          PUBSPEC_VERSION="${VERSION}+${GITHUB_RUN_NUMBER}"
+          # Use tag-derived version only (do not append build metadata like +<run_number>)
+          PUBSPEC_VERSION="${VERSION}"
 
           # Update first 'version:' entry in pubspec.yaml to PUBSPEC_VERSION
           if [ -f pubspec.yaml ]; then

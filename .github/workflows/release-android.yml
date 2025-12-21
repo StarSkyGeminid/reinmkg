@@ -23,6 +23,40 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set tag and update `pubspec.yaml` version
+        id: set_pubspec_version
+        run: |
+          echo "Setting pubspec version from tag..."
+          TAG=${GITHUB_REF#refs/tags/}
+          # strip a single leading v or V if present (handles tags like v0.1.2)
+          VERSION=$(echo "$TAG" | sed -E 's/^[vV]//')
+          echo "Tag: $TAG"
+          echo "Parsed version: $VERSION"
+
+          # Validate semver-like: MAJOR.MINOR.PATCH with optional -PRERELEASE
+          if ! echo "$VERSION" | grep -E -q '^([0-9]+)\.([0-9]+)\.([0-9]+)(-[0-9A-Za-z.-]+)?$'; then
+            echo "ERROR: Tag '$TAG' does not match expected semver format 'vMAJOR.MINOR.PATCH' or 'vMAJOR.MINOR.PATCH-PRERELEASE'" >&2
+            exit 1
+          fi
+
+          PUBSPEC_VERSION="${VERSION}+${GITHUB_RUN_NUMBER}"
+
+          # Update first 'version:' entry in pubspec.yaml to PUBSPEC_VERSION
+          if [ -f pubspec.yaml ]; then
+            if grep -q '^version:' pubspec.yaml; then
+              sed -i -E "0,/^version:/s//version: ${PUBSPEC_VERSION}/" pubspec.yaml
+            else
+              echo "version: ${PUBSPEC_VERSION}" >> pubspec.yaml
+            fi
+            echo "Updated pubspec.yaml (head):"
+            sed -n '1,40p' pubspec.yaml
+          else
+            echo "ERROR: pubspec.yaml not found in repository root." >&2
+            exit 1
+          fi
+
+          echo "PUBSPEC_VERSION=${PUBSPEC_VERSION}" >> $GITHUB_OUTPUT
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:

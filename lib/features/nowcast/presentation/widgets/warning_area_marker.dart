@@ -148,7 +148,13 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
 
       regionsRegex = nowcasts
           .map((e) {
-            return e.province?.toUpperCase();
+            String? province = e.province?.toUpperCase();
+
+            province = (province?.startsWith('DI YOGYAKARTA') ?? false)
+                ? 'YOGYAKARTA'
+                : province;
+
+            return province;
           })
           .join('|');
 

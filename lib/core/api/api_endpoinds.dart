@@ -10,13 +10,12 @@ class ApiEndpoints {
 class BmkgApp {
   const BmkgApp._();
 
-  static String weatherBMKGDomain = 'https://cuaca.bmkg.go.id';
   static String apiAppsBmkgDomain = 'https://api-apps.bmkg.go.id';
 
   String get nearestLocation => '$apiAppsBmkgDomain/api/df/v1/adm/coord';
   String get currentWeather => '$apiAppsBmkgDomain/api/df/v1/presentwx/adm';
 
-  String get forecasts => '$weatherBMKGDomain/api/df/v1/forecast/adm';
+  String get forecasts => '$apiAppsBmkgDomain/api/df/v1/forecast/adm';
 
   String get nearestRadar => '$apiAppsBmkgDomain/api/radar';
 

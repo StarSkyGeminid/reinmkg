@@ -36,20 +36,23 @@ class _ProductMenuState extends State<ProductMenu> {
           topRight: Radius.circular(10),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _viewControler(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _time(context),
-              if (widget.productTypeDropdown != null) _productType(),
-            ],
-          ),
-          _legend(context),
-        ],
+      child: SafeArea(
+        top: false,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _viewControler(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _time(context),
+                if (widget.productTypeDropdown != null) _productType(),
+              ],
+            ),
+            _legend(context),
+          ],
+        ),
       ),
     );
   }

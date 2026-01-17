@@ -105,6 +105,8 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
 
     if (provinceName.contains('KEPULAUAN')) {
       provinceName = provinceName.replaceAll('KEPULAUAN ', '');
+    }  else if (provinceName.startsWith('DI YOGYAKARTA')) {
+      provinceName = 'YOGYAKARTA';
     }
 
     return Polygon(

@@ -68,11 +68,11 @@ class TewsBmkg {
 class SidarmaBmkg {
   const SidarmaBmkg._();
 
-  static String dataBmkgDomain = 'https://radar.bmkg.go.id';
+  static String dataBmkgDomain = 'https://api.bmkg.go.id';
 
   String get radarMeta =>
-      '$dataBmkgDomain/sidarma-nowcast/data/radarMetadata.json';
+      '$dataBmkgDomain/radar/radarlist';
 
   String radar(String id) =>
-      '$dataBmkgDomain/sidarma-nowcast/android/ssx$id.json';
+      '$dataBmkgDomain/sidarma/sidarma-nowcast/android/ssx$id.json';
 }

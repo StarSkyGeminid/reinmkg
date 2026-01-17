@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:reinmkg/core/shared/presentation/cubits/cubits/playback_cubit.dart';
@@ -106,9 +107,8 @@ class _RadarImageOverlayState extends State<RadarImageOverlay> {
 
     try {
       await precacheImage(provider, context);
-    } catch (_) {
-    }
-    
+    } catch (_) {}
+
     if (!mounted) return;
 
     setState(() {
@@ -126,8 +126,24 @@ class _RadarImageOverlayState extends State<RadarImageOverlay> {
         maxNrOfCacheObjects: 20,
         repo: JsonCacheInfoRepository(databaseName: cacheName),
         fileSystem: IOFileSystem(cacheName),
-        fileService: HttpFileService(),
+        fileService: HttpFileService(
+          httpClient: _HeaderHttpClient({'User-Agent': 'okhttp/4.12.0'}),
+        ),
       ),
     );
+  }
+}
+
+class _HeaderHttpClient extends http.BaseClient {
+  final Map<String, String> _headers;
+  final http.Client _inner;
+
+  _HeaderHttpClient(this._headers, [http.Client? inner])
+    : _inner = inner ?? http.Client();
+
+  @override
+  Future<http.StreamedResponse> send(http.BaseRequest request) {
+    request.headers.addAll(_headers);
+    return _inner.send(request);
   }
 }

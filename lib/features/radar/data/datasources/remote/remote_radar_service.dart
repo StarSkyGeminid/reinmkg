@@ -13,9 +13,20 @@ abstract class RemoteRadarService {
 }
 
 class RemoteRadarServiceImpl implements RemoteRadarService {
-  final Dio _dio;
+  late final Dio _dio;
 
-  RemoteRadarServiceImpl(this._dio);
+  RemoteRadarServiceImpl() {
+    _dio = Dio(
+      BaseOptions(
+        connectTimeout: const Duration(seconds: 30),
+        headers: {
+          "Content-Type": "application/json",
+          "User-Agent": "okhttp/4.12.0",
+          "x-api-key": "Oxl195umsKDiEL3IYO3p3rEd",
+        },
+      ),
+    );
+  }
 
   @override
   Future<List<RadarModel>> getRadars() async {

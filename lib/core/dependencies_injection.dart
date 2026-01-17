@@ -124,7 +124,7 @@ void _dataSources() {
   );
 
   sl.registerLazySingleton<RemoteRadarService>(
-    () => RemoteRadarServiceImpl(sl()),
+    () => RemoteRadarServiceImpl(),
   );
 
   sl.registerLazySingleton<RemoteEarthquakeService>(

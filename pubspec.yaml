@@ -22,20 +22,19 @@ dependencies:
   material_symbols_icons: ^4.2874.0
   go_router: ^17.0.0
   get_it: ^9.0.5
-  flutter_map: ^8.2.2
   flutter_animate: ^4.5.2
   equatable: ^2.0.7
   countup: ^0.1.4
-  froom: ^4.0.0
+  froom: ^6.0.0
   shared_preferences: ^2.5.3
   path_provider: ^2.1.5
-  package_info_plus: ^8.3.1
+  package_info_plus: ^9.0.0
   intl: ^0.20.2
   flutter_localizations:
     sdk: flutter
   dio: ^5.9.0
   iconsax: ^0.0.8
-  google_fonts: ^6.3.2
+  google_fonts: ^8.0.2
   daylight: ^3.1.0
   location: ^8.0.1
   sqflite: ^2.4.2
@@ -59,16 +58,14 @@ dependencies:
   http: ^1.6.0
 
 dependency_overrides:
-  latlong2: ^0.9.1
-  proj4dart: ^2.1.0
   unicode: ^1.1.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^5.0.0
-  froom_generator: ^4.0.0
+  flutter_lints: ^6.0.0
+  froom_generator: ^6.0.0
   build_runner: ^2.10.3
 
 flutter:

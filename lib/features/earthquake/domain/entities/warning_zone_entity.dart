@@ -29,6 +29,15 @@ class WarningZoneEntity extends Equatable {
         dateTime,
       ];
 
-  toJson() {}
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'eventId': eventId,
+      'province': province,
+      'district': district,
+      'level': level?.name,
+      'dateTime': dateTime,
+    };
+  }
 
 }

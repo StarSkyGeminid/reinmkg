@@ -33,7 +33,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (_) => sl<LocationCubit>()..refreshLocation()),
       ],
       child: LayoutBuilder(
-        builder: (context, __) {
+        builder: (context, _) {
           AppRoute.setStream(context);
 
           return BlocBuilder<SettingsCubit, SettingsState>(

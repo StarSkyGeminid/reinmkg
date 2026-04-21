@@ -39,12 +39,12 @@ class AppRoute {
       GoRoute(
         path: Routes.splashScreen.path,
         name: Routes.splashScreen.name,
-        builder: (_, __) => const SplashScreenPage(),
+        builder: (_, _) => const SplashScreenPage(),
       ),
       GoRoute(
         path: Routes.root.path,
         name: Routes.root.name,
-        redirect: (_, __) => Routes.dashboard.path,
+        redirect: (_, _) => Routes.dashboard.path,
       ),
       ..._dashboardSubMenu,
       StatefulShellRoute.indexedStack(
@@ -57,7 +57,7 @@ class AppRoute {
               GoRoute(
                 path: Routes.dashboard.path,
                 name: Routes.dashboard.name,
-                builder: (_, __) => MultiBlocProvider(
+                builder: (_, _) => MultiBlocProvider(
                   providers: [
                     BlocProvider<CurrentWeatherCubit>(
                       create: (context) => sl()..getCurrentWeather(),
@@ -82,7 +82,7 @@ class AppRoute {
               GoRoute(
                 path: Routes.weather.path,
                 name: Routes.weather.name,
-                builder: (_, __) => MultiBlocProvider(
+                builder: (_, _) => MultiBlocProvider(
                   providers: [
                     BlocProvider<CurrentWeatherCubit>(
                       create: (context) => sl()..getCurrentWeather(),
@@ -130,7 +130,7 @@ class AppRoute {
               GoRoute(
                 path: Routes.settings.path,
                 name: Routes.settings.name,
-                builder: (_, __) => const SettingsPage(),
+                builder: (_, _) => const SettingsPage(),
               ),
             ],
           ),

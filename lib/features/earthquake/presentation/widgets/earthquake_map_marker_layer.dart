@@ -94,7 +94,7 @@ class _EarthquakeMapMarkerLayerState extends State<EarthquakeMapMarkerLayer> {
           markers: [
             if (state is EarthquakeHistoriesLoaded)
               ..._buildMarker(state.earthquakes),
-            if (_marker != null) _marker!,
+            ?_marker,
           ],
         );
       },

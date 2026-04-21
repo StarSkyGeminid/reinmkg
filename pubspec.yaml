@@ -41,6 +41,7 @@ dependencies:
   cached_network_image: ^3.4.1
   flutter_cache_manager: ^3.4.1
   qweather_icons: ^1.8.0
+  
   flutter_map_geojson:
     git:
       url: https://github.com/StarSkyGeminid/flutter_map_geojson.git
@@ -56,6 +57,7 @@ dependencies:
   rename: ^3.1.0
   url_launcher: ^6.3.2
   http: ^1.6.0
+  flutter_map: ^8.3.0
 
 dependency_overrides:
   unicode: ^1.1.8

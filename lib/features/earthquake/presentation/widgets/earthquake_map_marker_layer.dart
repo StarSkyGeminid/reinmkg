@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -23,33 +25,43 @@ class EarthquakeMapMarkerLayer extends StatefulWidget {
 
 class _EarthquakeMapMarkerLayerState extends State<EarthquakeMapMarkerLayer> {
   Marker? _marker;
+  List<Marker> _cachedMarkers = const [];
+  List<EarthquakeEntity>? _cachedEarthquakes;
+  StreamSubscription? _selectableSub;
 
   @override
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      BlocProvider.of<SelectableEarthquakeCubit>(context).stream.listen((
-        state,
-      ) {
-        if (state is SelectableEarthquakeSelected) {
-          final earthquake = state.earthquake;
-          final position =
-              earthquake.point?.toLatLng() ??
-              const LatLng(-7.8032074, 110.3542454);
+    _selectableSub =
+        BlocProvider.of<SelectableEarthquakeCubit>(context).stream.listen((
+      state,
+    ) {
+      if (state is SelectableEarthquakeSelected) {
+        final earthquake = state.earthquake;
+        final position =
+            earthquake.point?.toLatLng() ??
+            const LatLng(-7.8032074, 110.3542454);
 
-          _updateMarker(
-            position,
-            earthquake.depth ?? 0,
-            earthquake.magnitude ?? 0,
-          );
-        }
-      });
+        _updateMarker(
+          position,
+          earthquake.depth ?? 0,
+          earthquake.magnitude ?? 0,
+        );
+      }
     });
   }
 
+  @override
+  void dispose() {
+    _selectableSub?.cancel();
+    super.dispose();
+  }
+
   void _updateMarker(LatLng cooordinate, double depth, double magnitude) {
-    widget.mapController.move(cooordinate, widget.mapController.camera.zoom);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.mapController.move(cooordinate, widget.mapController.camera.zoom);
+    });
 
     final color = _getMarkerColor(depth);
 
@@ -90,10 +102,15 @@ class _EarthquakeMapMarkerLayerState extends State<EarthquakeMapMarkerLayer> {
         }
       },
       builder: (context, state) {
+        if (state is EarthquakeHistoriesLoaded &&
+            state.earthquakes != _cachedEarthquakes) {
+          _cachedEarthquakes = state.earthquakes;
+          _cachedMarkers = _buildMarker(state.earthquakes);
+        }
+
         return MarkerLayer(
           markers: [
-            if (state is EarthquakeHistoriesLoaded)
-              ..._buildMarker(state.earthquakes),
+            ..._cachedMarkers,
             ?_marker,
           ],
         );

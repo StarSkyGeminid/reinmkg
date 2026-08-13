@@ -222,5 +222,14 @@
     "severity": "Severity",
     "category": "Category",
     "tags": "Tags",
-    "source": "Source"
+    "source": "Source",
+    "solarNoonLabel": "Solar Noon",
+    "dawnLabel": "Civil Dawn",
+    "duskLabel": "Civil Dusk",
+    "goldenHourLabel": "Golden Hour",
+    "moonDistanceLabel": "Moon Distance",
+    "waxingLabel": "Waxing",
+    "waningLabel": "Waning",
+    "alwaysUpLabel": "Never Sets",
+    "alwaysDownLabel": "Never Rises"
 }

@@ -38,7 +38,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "48fe039767a6f8d0d75a8bd73ed26ab6b4d0078e"
+      resolved-ref: d2841180fc29736839b24e35331cf8bd80f4677f
       url: "https://github.com/StarSkyGeminid/apsl_sun_calc.git"
     source: git
     version: "0.0.4"
@@ -433,7 +433,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "2d37d4ae13b39f3b248618582fd0f436bffe1305"
+      resolved-ref: "7d69cd380ad3d2e3766ccf133d55adbdd948bbd1"
       url: "https://github.com/StarSkyGeminid/flutter_map_geojson.git"
     source: git
     version: "1.0.8"

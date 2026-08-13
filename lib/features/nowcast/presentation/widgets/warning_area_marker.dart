@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -18,6 +20,8 @@ class WarningAreaMarker extends StatefulWidget {
 }
 
 class _WarningAreaMarkerState extends State<WarningAreaMarker> {
+  StreamSubscription? _borderSub;
+  StreamSubscription? _nowcastSub;
   final LayerHitNotifier hitNotifier = ValueNotifier(null);
 
   List<WeatherNowcastEntity> nowcasts = [];
@@ -41,7 +45,7 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
       if (provinceBorderCubit.state.border == null) {
         provinceBorderCubit.getProvinceBorder();
 
-        BlocProvider.of<ProvinceBorderOverlayCubit>(context).stream.listen((
+        _borderSub = BlocProvider.of<ProvinceBorderOverlayCubit>(context).stream.listen((
           state,
         ) {
           if (state.border != null) _drawPolygon(state.border!);
@@ -126,7 +130,7 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
   }
 
   Future<void> _drawPolygon(String provinceBorder) async {
-    BlocProvider.of<NowcastCubit>(context).stream.listen((state) {
+    _nowcastSub = BlocProvider.of<NowcastCubit>(context).stream.listen((state) {
       if (state is! NowcastLoaded) return;
 
       nowcasts = state.nowcasts;
@@ -166,6 +170,14 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
         setState(() {});
       });
     });
+  }
+
+  @override
+  void dispose() {
+    _borderSub?.cancel();
+    _nowcastSub?.cancel();
+    hitNotifier.dispose();
+    super.dispose();
   }
 
   @override

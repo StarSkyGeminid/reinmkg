@@ -13,6 +13,9 @@ void main() {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
 
+      PaintingBinding.instance.imageCache.maximumSize = 2000;
+      PaintingBinding.instance.imageCache.maximumSizeBytes = 200 << 20;
+
       await dotenv.load(fileName: '.env');
 
       Intl.systemLocale = await findSystemLocale();

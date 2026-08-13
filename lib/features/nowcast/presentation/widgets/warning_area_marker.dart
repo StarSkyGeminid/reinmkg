@@ -88,7 +88,7 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
 
   Future<void> processData(String geoJson) async {
     try {
-      return geoJsonParser.parseGeoJsonAsString(geoJson);
+      await geoJsonParser.parseGeoJsonAsString(geoJson);
     } catch (e) {
       return;
     }

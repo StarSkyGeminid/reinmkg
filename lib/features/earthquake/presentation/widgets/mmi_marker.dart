@@ -70,7 +70,7 @@ class _MMIMarkerState extends State<MMIMarker> {
 
   Future<void> processData(String geoJson) async {
     try {
-      return geoJsonParser.parseGeoJsonAsString(geoJson);
+      await geoJsonParser.parseGeoJsonAsString(geoJson);
     } catch (e) {
       return;
     }

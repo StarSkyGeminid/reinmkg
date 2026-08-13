@@ -109,7 +109,7 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
 
   Future<void> processData(String geoJson) async {
     try {
-      return geoJsonParser.parseGeoJsonAsString(geoJson);
+      await geoJsonParser.parseGeoJsonAsString(geoJson);
     } catch (e) {
       return;
     }

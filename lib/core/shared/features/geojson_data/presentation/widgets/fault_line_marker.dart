@@ -55,7 +55,7 @@ class _FaultLineMarkerState extends State<FaultLineMarker> {
   }
 
   Future<void> _buildGeojson(String faultLine) async {
-    geoJsonParser.parseGeoJsonAsString(faultLine);
+    await geoJsonParser.parseGeoJsonAsString(faultLine);
 
     setState(() {});
   }

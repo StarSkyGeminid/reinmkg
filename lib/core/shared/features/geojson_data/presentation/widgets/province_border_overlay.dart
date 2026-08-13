@@ -63,7 +63,7 @@ class _RegionBorderState extends State<ProvinceBorderOverlay> {
 
   Future<void> processData(String geoJson) async {
     try {
-      return _geoJsonParser.parseGeoJsonAsString(geoJson);
+      await _geoJsonParser.parseGeoJsonAsString(geoJson);
     } catch (e) {
       return;
     }

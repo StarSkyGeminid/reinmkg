@@ -87,6 +87,14 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Create .env from secret
+        run: |
+          if [ -n "${{ secrets.BMKG_API_TOKEN }}" ]; then
+            echo "BMKG_API_TOKEN=${{ secrets.BMKG_API_TOKEN }}" > .env
+          else
+            echo "BMKG_API_TOKEN=" > .env
+          fi
+
       - name: Build APKs (split per ABI, release)
         run: flutter build apk --release --split-per-abi
 

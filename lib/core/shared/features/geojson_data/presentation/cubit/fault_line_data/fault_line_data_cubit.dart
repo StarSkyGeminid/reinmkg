@@ -11,6 +11,8 @@ class FaultLineDataCubit extends Cubit<FaultLineDataState> {
     : super(const FaultLineDataInitial());
 
   Future<void> getFaultLine() async {
+    if (state is FaultLineDataLoaded) return;
+
     emit(const FaultLineDataLoading());
     try {
       final value = await _getFaultLineUsecase();

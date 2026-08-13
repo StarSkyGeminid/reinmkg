@@ -268,11 +268,11 @@ void _bloc() {
 }
 
 void _cubit() {
-  sl.registerFactory(() => RegionBorderOverlayCubit(sl()));
-  sl.registerFactory(() => ProvinceBorderOverlayCubit(sl()));
+  sl.registerLazySingleton(() => RegionBorderOverlayCubit(sl()));
+  sl.registerLazySingleton(() => ProvinceBorderOverlayCubit(sl()));
   sl.registerFactory(() => PlaybackCubit());
 
-  sl.registerFactory(() => FaultLineDataCubit(sl()));
+  sl.registerLazySingleton(() => FaultLineDataCubit(sl()));
 
   sl.registerFactory(() => SettingsCubit(sl(), sl(), sl()));
   sl.registerFactory(() => LocationCubit(sl(), sl(), sl()));
@@ -285,7 +285,7 @@ void _cubit() {
   sl.registerFactory(() => RadarSelectionCubit(sl(), sl(), sl(), sl()));
 
   sl.registerFactory(() => SateliteCubit(sl()));
-  sl.registerFactory(() => MaritimeBoundariesCubit(sl()));
+  sl.registerLazySingleton(() => MaritimeBoundariesCubit(sl()));
 
   sl.registerFactory(() => EarthquakeCubit(sl(), sl(), sl(), sl()));
   sl.registerFactory(() => SelectableEarthquakeCubit(sl(), sl()));

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -24,6 +26,7 @@ class _RegionBorderState extends State<RegionBorder> {
   String regionsRegex = '';
 
   late final GeoJsonParser _geoJsonParser;
+  StreamSubscription<RegionBorderOverlayState>? _cubitSub;
 
   @override
   void initState() {
@@ -46,7 +49,7 @@ class _RegionBorderState extends State<RegionBorder> {
     if (cubit.state.border == null) {
       cubit.getRegionBorder();
 
-      cubit.stream.listen((state) {
+      _cubitSub = cubit.stream.listen((state) {
         if (state.border != null) {
           _buildGeojson(state.border!);
         }
@@ -97,5 +100,11 @@ class _RegionBorderState extends State<RegionBorder> {
   @override
   Widget build(BuildContext context) {
     return PolygonLayer(polygons: _geoJsonParser.polygons);
+  }
+
+  @override
+  void dispose() {
+    _cubitSub?.cancel();
+    super.dispose();
   }
 }

@@ -12,6 +12,8 @@ class ProvinceBorderOverlayCubit extends Cubit<ProvinceBorderOverlayState> {
     : super(ProvinceBorderOverlayState());
 
   Future<void> getProvinceBorder() {
+    if (state.border != null) return Future.value();
+
     emit(ProvinceBorderOverlayState());
 
     return _getProvinceBorderUsecase()

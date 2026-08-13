@@ -12,6 +12,8 @@ class RegionBorderOverlayCubit extends Cubit<RegionBorderOverlayState> {
     : super(RegionBorderOverlayState());
 
   Future<void> getRegionBorder() {
+    if (state.border != null) return Future.value();
+
     emit(RegionBorderOverlayState());
 
     return _getProvinceBorderUsecase()

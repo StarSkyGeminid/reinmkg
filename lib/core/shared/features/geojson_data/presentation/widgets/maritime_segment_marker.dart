@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -47,6 +49,8 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
     defaultPolylineStroke: 2,
   );
 
+  StreamSubscription<MaritimeBoundariesState>? _cubitSub;
+
   @override
   void initState() {
     super.initState();
@@ -55,7 +59,7 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
     if (boundariesCubit.state.boundaries == null) {
       boundariesCubit.fetchMaritimeBoundaries();
 
-      boundariesCubit.stream.listen((state) {
+      _cubitSub = boundariesCubit.stream.listen((state) {
         if (state.boundaries != null) _drawPolygon(state.boundaries!);
       });
     } else {
@@ -190,6 +194,7 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
 
   @override
   void dispose() {
+    _cubitSub?.cancel();
     hitNotifier.dispose();
 
     super.dispose();

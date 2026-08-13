@@ -12,6 +12,8 @@ class MaritimeBoundariesCubit extends Cubit<MaritimeBoundariesState> {
     : super(MaritimeBoundariesState());
 
   Future<void> fetchMaritimeBoundaries() async {
+    if (state.boundaries != null) return;
+
     try {
       final boundaries = await _getMaritimeBoundariesUsecase.call();
       emit(MaritimeBoundariesState(boundaries: boundaries));

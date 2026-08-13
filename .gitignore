@@ -8,8 +8,6 @@
 .env
 .env.*.local
 !/.env.example
-
-/flutter_map_geojson
 .atom/
 .build/
 .buildlog/

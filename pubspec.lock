@@ -431,9 +431,11 @@ packages:
   flutter_map_geojson:
     dependency: "direct main"
     description:
-      path: flutter_map_geojson
-      relative: true
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: "2d37d4ae13b39f3b248618582fd0f436bffe1305"
+      url: "https://github.com/StarSkyGeminid/flutter_map_geojson.git"
+    source: git
     version: "1.0.8"
   flutter_map_marker_popup:
     dependency: "direct main"

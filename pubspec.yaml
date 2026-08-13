@@ -43,7 +43,9 @@ dependencies:
   qweather_icons: ^1.8.0
   
   flutter_map_geojson:
-    path: flutter_map_geojson
+    git:
+      url: https://github.com/StarSkyGeminid/flutter_map_geojson.git
+      ref: main
   flutter_launcher_icons: ^0.14.4
   flutter_native_splash: ^2.4.7
   apsl_sun_calc:

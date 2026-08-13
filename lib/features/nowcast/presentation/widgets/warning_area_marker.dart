@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -22,6 +23,7 @@ class WarningAreaMarker extends StatefulWidget {
 class _WarningAreaMarkerState extends State<WarningAreaMarker> {
   StreamSubscription? _borderSub;
   StreamSubscription? _nowcastSub;
+  Map<String, dynamic>? _decodedBorder;
   final LayerHitNotifier hitNotifier = ValueNotifier(null);
 
   List<WeatherNowcastEntity> nowcasts = [];
@@ -88,7 +90,8 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
 
   Future<void> processData(String geoJson) async {
     try {
-      await geoJsonParser.parseGeoJsonAsString(geoJson);
+      _decodedBorder ??= await compute(decodeJson, geoJson);
+      geoJsonParser.parseGeoJson(_decodedBorder!);
     } catch (e) {
       return;
     }

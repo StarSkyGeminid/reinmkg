@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -50,6 +51,7 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
   );
 
   StreamSubscription<MaritimeBoundariesState>? _cubitSub;
+  Map<String, dynamic>? _decodedBorder;
 
   @override
   void initState() {
@@ -109,7 +111,8 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
 
   Future<void> processData(String geoJson) async {
     try {
-      await geoJsonParser.parseGeoJsonAsString(geoJson);
+      _decodedBorder ??= await compute(decodeJson, geoJson);
+      geoJsonParser.parseGeoJson(_decodedBorder!);
     } catch (e) {
       return;
     }

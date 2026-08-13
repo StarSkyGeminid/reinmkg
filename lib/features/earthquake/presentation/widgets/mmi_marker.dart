@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -21,6 +22,7 @@ class MMIMarker extends StatefulWidget {
 class _MMIMarkerState extends State<MMIMarker> {
   StreamSubscription? _borderSub;
   StreamSubscription? _earthquakeSub;
+  Map<String, dynamic>? _decodedBorder;
   List<EarthquakeMmiEntity> listEarthquakeMMI = [];
   String regionsRegex = '';
 
@@ -70,7 +72,8 @@ class _MMIMarkerState extends State<MMIMarker> {
 
   Future<void> processData(String geoJson) async {
     try {
-      await geoJsonParser.parseGeoJsonAsString(geoJson);
+      _decodedBorder ??= await compute(decodeJson, geoJson);
+      geoJsonParser.parseGeoJson(_decodedBorder!);
     } catch (e) {
       return;
     }

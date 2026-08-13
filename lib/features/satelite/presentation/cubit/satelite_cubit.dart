@@ -12,11 +12,14 @@ class SateliteCubit extends Cubit<SateliteState> {
   SateliteCubit(this._getSateliteImagesUsecase) : super(SateliteInitial());
 
   Future<void> getImages() async {
+    if (isClosed) return;
     emit(SateliteLoading());
     try {
       final sateliteImages = await _getSateliteImagesUsecase();
+      if (isClosed) return;
       emit(SateliteLoaded(sateliteImages));
     } catch (e) {
+      if (isClosed) return;
       emit(SateliteFailure(e.toString()));
     }
   }

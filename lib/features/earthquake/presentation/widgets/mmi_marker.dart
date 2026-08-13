@@ -128,7 +128,9 @@ class _MMIMarkerState extends State<MMIMarker> {
   }
 
   void _drawPolygon(Map<String, dynamic> provinceBorder) {
-    _earthquakeSub = BlocProvider.of<SelectableEarthquakeCubit>(context).stream.listen((state) {
+    final earthquakeCubit = BlocProvider.of<SelectableEarthquakeCubit>(context);
+
+    void handleState(SelectableEarthquakeState state) {
       if (state is! SelectableEarthquakeSelected) return;
 
       final earthquake = state.earthquake;
@@ -161,7 +163,10 @@ class _MMIMarkerState extends State<MMIMarker> {
       processData(provinceBorder);
 
       setState(() {});
-    });
+    }
+
+    _earthquakeSub = earthquakeCubit.stream.listen(handleState);
+    handleState(earthquakeCubit.state);
   }
 
   @override

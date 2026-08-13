@@ -130,7 +130,9 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
   }
 
   void _drawPolygon(Map<String, dynamic> provinceBorder) {
-    _nowcastSub = BlocProvider.of<NowcastCubit>(context).stream.listen((state) {
+    final nowcastCubit = BlocProvider.of<NowcastCubit>(context);
+
+    void handleState(NowcastState state) {
       if (state is! NowcastLoaded) return;
 
       nowcasts = state.nowcasts;
@@ -169,7 +171,10 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
       processData(provinceBorder);
 
       setState(() {});
-    });
+    }
+
+    _nowcastSub = nowcastCubit.stream.listen(handleState);
+    handleState(nowcastCubit.state);
   }
 
   @override

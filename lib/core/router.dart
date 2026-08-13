@@ -169,6 +169,7 @@ class AppRoute {
             providers: [
               BlocProvider<RadarSelectionCubit>(create: (context) => sl()),
               BlocProvider<PlaybackCubit>(create: (context) => sl()),
+              BlocProvider<RegionBorderOverlayCubit>.value(value: sl()),
             ],
             child: const RadarPage(),
           ),

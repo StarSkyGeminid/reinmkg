@@ -456,4 +456,31 @@ class StringsId extends Strings {
 
   @override
   String get source => 'Sumber';
+
+  @override
+  String get solarNoonLabel => 'Tengah Hari Sejati';
+
+  @override
+  String get dawnLabel => 'Fajar Sipil';
+
+  @override
+  String get duskLabel => 'Senja Sipil';
+
+  @override
+  String get goldenHourLabel => 'Waktu Keemasan';
+
+  @override
+  String get moonDistanceLabel => 'Jarak Bulan';
+
+  @override
+  String get waxingLabel => 'Membesar';
+
+  @override
+  String get waningLabel => 'Menyusut';
+
+  @override
+  String get alwaysUpLabel => 'Tidak Pernah Terbenam';
+
+  @override
+  String get alwaysDownLabel => 'Tidak Pernah Terbit';
 }

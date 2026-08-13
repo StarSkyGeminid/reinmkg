@@ -38,7 +38,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "48fe039767a6f8d0d75a8bd73ed26ab6b4d0078e"
+      resolved-ref: d2841180fc29736839b24e35331cf8bd80f4677f
       url: "https://github.com/StarSkyGeminid/apsl_sun_calc.git"
     source: git
     version: "0.0.4"
@@ -391,6 +391,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.1"
+  flutter_dotenv:
+    dependency: "direct main"
+    description:
+      name: flutter_dotenv
+      sha256: b7c7be5cd9f6ef7a78429cabd2774d3c4af50e79cb2b7593e3d5d763ef95c61b
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.2.1"
   flutter_launcher_icons:
     dependency: "direct main"
     description:
@@ -425,7 +433,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: c6b630f1cbe2ac783a6f10c1115b6a6fac7d1a08
+      resolved-ref: "7d69cd380ad3d2e3766ccf133d55adbdd948bbd1"
       url: "https://github.com/StarSkyGeminid/flutter_map_geojson.git"
     source: git
     version: "1.0.8"

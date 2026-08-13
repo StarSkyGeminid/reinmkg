@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -24,6 +26,7 @@ class _RegionBorderState extends State<ProvinceBorderOverlay> {
   String regionsRegex = '';
 
   late final GeoJsonParser _geoJsonParser;
+  StreamSubscription<ProvinceBorderOverlayState>? _cubitSub;
 
   @override
   void initState() {
@@ -46,7 +49,7 @@ class _RegionBorderState extends State<ProvinceBorderOverlay> {
     if (cubit.state.border == null) {
       cubit.getProvinceBorder();
 
-      cubit.stream.listen((state) {
+      _cubitSub = cubit.stream.listen((state) {
         if (state.border != null) {
           _buildGeojson(state.border!);
         }
@@ -58,9 +61,9 @@ class _RegionBorderState extends State<ProvinceBorderOverlay> {
     }
   }
 
-  Future<void> processData(String geoJson) async {
+  void processData(Map<String, dynamic> geoJson) {
     try {
-      return _geoJsonParser.parseGeoJsonAsString(geoJson);
+      _geoJsonParser.parseGeoJson(geoJson);
     } catch (e) {
       return;
     }
@@ -85,17 +88,23 @@ class _RegionBorderState extends State<ProvinceBorderOverlay> {
     );
   }
 
-  Future<void> _buildGeojson(String border) async {
+  void _buildGeojson(Map<String, dynamic> border) {
     _geoJsonParser.polygonCreationCallback = createDefaultPolygon;
 
-    processData(border).then((_) {
-      if (!mounted) return;
-      setState(() {});
-    });
+    processData(border);
+
+    if (!mounted) return;
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return PolygonLayer(polygons: _geoJsonParser.polygons);
+  }
+
+  @override
+  void dispose() {
+    _cubitSub?.cancel();
+    super.dispose();
   }
 }

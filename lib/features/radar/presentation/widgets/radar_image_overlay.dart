@@ -107,7 +107,15 @@ class _RadarImageOverlayState extends State<RadarImageOverlay> {
 
     try {
       await precacheImage(provider, context);
-    } catch (_) {}
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _cacheKey = null;
+        _bounds = null;
+        _imageProvider = null;
+      });
+      return;
+    }
 
     if (!mounted) return;
 

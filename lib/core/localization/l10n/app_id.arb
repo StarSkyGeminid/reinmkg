@@ -236,5 +236,14 @@
     "severity": "Tingkat Keparahan",
     "category": "Kategori",
     "tags": "Tag",
-    "source": "Sumber"
+    "source": "Sumber",
+    "solarNoonLabel": "Tengah Hari Sejati",
+    "dawnLabel": "Fajar Sipil",
+    "duskLabel": "Senja Sipil",
+    "goldenHourLabel": "Waktu Keemasan",
+    "moonDistanceLabel": "Jarak Bulan",
+    "waxingLabel": "Membesar",
+    "waningLabel": "Menyusut",
+    "alwaysUpLabel": "Tidak Pernah Terbenam",
+    "alwaysDownLabel": "Tidak Pernah Terbit"
 }

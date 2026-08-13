@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -17,6 +19,8 @@ class MMIMarker extends StatefulWidget {
 }
 
 class _MMIMarkerState extends State<MMIMarker> {
+  StreamSubscription? _borderSub;
+  StreamSubscription? _earthquakeSub;
   List<EarthquakeMmiEntity> listEarthquakeMMI = [];
   String regionsRegex = '';
 
@@ -53,7 +57,7 @@ class _MMIMarkerState extends State<MMIMarker> {
       if (provinceBorderCubit.state.border == null) {
         provinceBorderCubit.getRegionBorder();
 
-        BlocProvider.of<RegionBorderOverlayCubit>(context).stream.listen((
+        _borderSub = BlocProvider.of<RegionBorderOverlayCubit>(context).stream.listen((
           state,
         ) {
           if (state.border != null) _drawPolygon(state.border!);
@@ -64,9 +68,9 @@ class _MMIMarkerState extends State<MMIMarker> {
     });
   }
 
-  Future<void> processData(String geoJson) async {
+  void processData(Map<String, dynamic> geoJson) {
     try {
-      return geoJsonParser.parseGeoJsonAsString(geoJson);
+      geoJsonParser.parseGeoJson(geoJson);
     } catch (e) {
       return;
     }
@@ -123,8 +127,10 @@ class _MMIMarkerState extends State<MMIMarker> {
     );
   }
 
-  Future<void> _drawPolygon(String provinceBorder) async {
-    BlocProvider.of<SelectableEarthquakeCubit>(context).stream.listen((state) {
+  void _drawPolygon(Map<String, dynamic> provinceBorder) {
+    final earthquakeCubit = BlocProvider.of<SelectableEarthquakeCubit>(context);
+
+    void handleState(SelectableEarthquakeState state) {
       if (state is! SelectableEarthquakeSelected) return;
 
       final earthquake = state.earthquake;
@@ -154,10 +160,20 @@ class _MMIMarkerState extends State<MMIMarker> {
 
       regionsRegex = '($regionsRegex)\$';
 
-      processData(provinceBorder).then((_) {
-        setState(() {});
-      });
-    });
+      processData(provinceBorder);
+
+      setState(() {});
+    }
+
+    _earthquakeSub = earthquakeCubit.stream.listen(handleState);
+    handleState(earthquakeCubit.state);
+  }
+
+  @override
+  void dispose() {
+    _borderSub?.cancel();
+    _earthquakeSub?.cancel();
+    super.dispose();
   }
 
   @override

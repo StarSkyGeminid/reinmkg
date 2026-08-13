@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_map_geojson/flutter_map_geojson.dart';
 
 import '../../../domain/usecases/get_maritime_boundaries_usecase.dart';
 
@@ -12,9 +14,12 @@ class MaritimeBoundariesCubit extends Cubit<MaritimeBoundariesState> {
     : super(MaritimeBoundariesState());
 
   Future<void> fetchMaritimeBoundaries() async {
+    if (state.boundaries != null) return;
+
     try {
-      final boundaries = await _getMaritimeBoundariesUsecase.call();
-      emit(MaritimeBoundariesState(boundaries: boundaries));
+      final raw = await _getMaritimeBoundariesUsecase.call();
+      final decoded = await compute(decodeJson, raw);
+      emit(MaritimeBoundariesState(boundaries: decoded));
     } catch (e) {
       emit(MaritimeBoundariesState(boundaries: null));
     }

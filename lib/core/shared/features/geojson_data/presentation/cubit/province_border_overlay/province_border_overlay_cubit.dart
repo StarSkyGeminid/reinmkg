@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_map_geojson/flutter_map_geojson.dart';
 
 import '../../../domain/usecases/get_province_border_usecase.dart';
 
@@ -11,13 +13,15 @@ class ProvinceBorderOverlayCubit extends Cubit<ProvinceBorderOverlayState> {
   ProvinceBorderOverlayCubit(this._getProvinceBorderUsecase)
     : super(ProvinceBorderOverlayState());
 
-  Future<void> getProvinceBorder() {
+  Future<void> getProvinceBorder() async {
+    if (state.border != null) return;
+
     emit(ProvinceBorderOverlayState());
 
-    return _getProvinceBorderUsecase()
-        .then((value) {
-          emit(ProvinceBorderOverlayState(border: value));
-        })
-        .catchError((error) {});
+    try {
+      final raw = await _getProvinceBorderUsecase();
+      final decoded = await compute(decodeJson, raw);
+      emit(ProvinceBorderOverlayState(border: decoded));
+    } catch (_) {}
   }
 }

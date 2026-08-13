@@ -87,6 +87,14 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Create .env from secret
+        run: |
+          if [ -n "${{ secrets.BMKG_API_TOKEN }}" ]; then
+            echo "BMKG_API_TOKEN=${{ secrets.BMKG_API_TOKEN }}" > .env
+          else
+            echo "BMKG_API_TOKEN=" > .env
+          fi
+
       - name: Build APKs (split per ABI, release)
         run: flutter build apk --release --split-per-abi
 
@@ -142,33 +150,69 @@ jobs:
         run: |
           TAG=${{ steps.vars.outputs.TAG }}
           VERSION=${{ steps.vars.outputs.VERSION }}
+          DATE=$(date -u +"%Y-%m-%d")
+          OUT="release_artifacts/changelog-${VERSION}.md"
           git fetch --prune --unshallow --tags || true
-          # find previous tag (most recent tag that's not the current one)
+
           PREV_TAG=$(git tag --sort=-creatordate | grep -v "^${TAG}$" | sed -n '1p' || true)
 
-          # Try to extract tag message (works for annotated tags and falls back to commit message)
           TAG_MSG=$(git cat-file -p "${TAG}" 2>/dev/null | sed '1,/^$/d' || true)
           if [ -z "$TAG_MSG" ]; then
             TAG_MSG=$(git log -1 --pretty=%B "${TAG}" 2>/dev/null || true)
           fi
-          if [ -z "$TAG_MSG" ]; then
-            TAG_MSG="(no tag description)"
-          fi
 
-          # Write header + tag description
-          echo "## Update description" >> release_artifacts/changelog-${VERSION}.md
-          echo "" >> release_artifacts/changelog-${VERSION}.md
-          printf "%s\n" "$TAG_MSG" >> release_artifacts/changelog-${VERSION}.md
-          echo "" >> release_artifacts/changelog-${VERSION}.md
-          echo "## Changes" >> release_artifacts/changelog-${VERSION}.md
-          echo "" >> release_artifacts/changelog-${VERSION}.md
-
-          # Append commit list between previous tag and current tag (or the commits on the tag if no previous tag)
           if [ -n "$PREV_TAG" ]; then
-            git log --pretty=format:'- %s' ${PREV_TAG}..${TAG} >> release_artifacts/changelog-${VERSION}.md
+            RANGE="${PREV_TAG}..${TAG}"
           else
-            git log --pretty=format:'- %s' ${TAG} >> release_artifacts/changelog-${VERSION}.md
+            RANGE="${TAG}"
           fi
+
+          COMMITS=$(git log --no-merges --pretty=format:'%s' $RANGE 2>/dev/null || true)
+
+          {
+            echo "## Version ${VERSION}"
+            echo ""
+            echo "Released: ${DATE}"
+            echo ""
+
+            if [ -n "$TAG_MSG" ]; then
+              echo "### Description"
+              echo ""
+              printf "%s\n" "$TAG_MSG"
+              echo ""
+            fi
+
+            if [ -n "$COMMITS" ]; then
+              echo "### Changes"
+              echo ""
+
+              added=$(echo "$COMMITS" | grep -iE '^(add|feat)' || true)
+              fixed=$(echo "$COMMITS" | grep -iE '^(fix)' || true)
+              changed=$(echo "$COMMITS" | grep -iE '^(perf|refactor|revert|update|bump|move|cache|remove|chore|dep)' || true)
+              other=$(echo "$COMMITS" | grep -viE '^(add|feat|fix|perf|refactor|revert|update|bump|move|cache|remove|chore|dep)' || true)
+
+              if [ -n "$added" ]; then
+                echo "**Added**"
+                echo "$added" | sed 's/^/- /'
+                echo ""
+              fi
+              if [ -n "$fixed" ]; then
+                echo "**Fixed**"
+                echo "$fixed" | sed 's/^/- /'
+                echo ""
+              fi
+              if [ -n "$changed" ]; then
+                echo "**Changed**"
+                echo "$changed" | sed 's/^/- /'
+                echo ""
+              fi
+              if [ -n "$other" ]; then
+                echo "**Other**"
+                echo "$other" | sed 's/^/- /'
+                echo ""
+              fi
+            fi
+          } > "$OUT"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -182,7 +226,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
           tag: ${{ steps.vars.outputs.TAG }}
-          name: Release ${{ steps.vars.outputs.TAG }}
+          name: ${{ steps.vars.outputs.TAG }}
 
           allowUpdates: true
 

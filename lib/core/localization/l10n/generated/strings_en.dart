@@ -456,4 +456,31 @@ class StringsEn extends Strings {
 
   @override
   String get source => 'Source';
+
+  @override
+  String get solarNoonLabel => 'Solar Noon';
+
+  @override
+  String get dawnLabel => 'Civil Dawn';
+
+  @override
+  String get duskLabel => 'Civil Dusk';
+
+  @override
+  String get goldenHourLabel => 'Golden Hour';
+
+  @override
+  String get moonDistanceLabel => 'Moon Distance';
+
+  @override
+  String get waxingLabel => 'Waxing';
+
+  @override
+  String get waningLabel => 'Waning';
+
+  @override
+  String get alwaysUpLabel => 'Never Sets';
+
+  @override
+  String get alwaysDownLabel => 'Never Rises';
 }

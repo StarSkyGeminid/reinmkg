@@ -168,6 +168,7 @@ class _RadarPageState extends State<RadarPage> {
           mapController: _controller,
           children: [
             RadarCircleOverlay(),
+            const RadarRegionBorder(),
             RadarImageOverlay(opacityNotifier: _opacityNotifier),
             UserPositionIndicator(userLocation: _userLocation),
             SafeArea(

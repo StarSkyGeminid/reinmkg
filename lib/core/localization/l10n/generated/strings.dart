@@ -810,6 +810,60 @@ abstract class Strings {
   /// In en, this message translates to:
   /// **'Source'**
   String get source;
+
+  /// No description provided for @solarNoonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Solar Noon'**
+  String get solarNoonLabel;
+
+  /// No description provided for @dawnLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Civil Dawn'**
+  String get dawnLabel;
+
+  /// No description provided for @duskLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Civil Dusk'**
+  String get duskLabel;
+
+  /// No description provided for @goldenHourLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Golden Hour'**
+  String get goldenHourLabel;
+
+  /// No description provided for @moonDistanceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Moon Distance'**
+  String get moonDistanceLabel;
+
+  /// No description provided for @waxingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Waxing'**
+  String get waxingLabel;
+
+  /// No description provided for @waningLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Waning'**
+  String get waningLabel;
+
+  /// No description provided for @alwaysUpLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Never Sets'**
+  String get alwaysUpLabel;
+
+  /// No description provided for @alwaysDownLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Never Rises'**
+  String get alwaysDownLabel;
 }
 
 class _StringsDelegate extends LocalizationsDelegate<Strings> {

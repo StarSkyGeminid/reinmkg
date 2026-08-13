@@ -274,7 +274,7 @@ class CelestialPainter extends CustomPainter {
   double _calculatePhase(CelestialObjectEntity? times, bool isSun) {
     if (times?.riseTime == null || times?.setTime == null) return 0;
 
-    final riseTime = times!.riseTime!;
+    final riseTime = times!.riseTime!.toLocal();
     final riseProgress = (riseTime.hour * 60 + riseTime.minute) / (24 * 60);
 
     return -riseProgress * 2 * math.pi;

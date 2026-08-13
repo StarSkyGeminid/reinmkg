@@ -1,7 +1,7 @@
 part of 'region_border_overlay_cubit.dart';
 
 class RegionBorderOverlayState extends Equatable {
-  final String? border;
+  final Map<String, dynamic>? border;
 
   const RegionBorderOverlayState({this.border});
 

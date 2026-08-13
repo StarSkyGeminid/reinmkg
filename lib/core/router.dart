@@ -104,8 +104,8 @@ class AppRoute {
                 name: Routes.earthquake.name,
                 builder: (_, state) => MultiBlocProvider(
                   providers: [
-                    BlocProvider<FaultLineDataCubit>(
-                      create: (context) => sl()..getFaultLine(),
+                    BlocProvider<FaultLineDataCubit>.value(
+                      value: sl()..getFaultLine(),
                     ),
                     BlocProvider<EarthquakeCubit>(
                       create: (context) => sl()..startListening(),
@@ -116,8 +116,8 @@ class AppRoute {
                     BlocProvider<SelectableEarthquakeCubit>(
                       create: (context) => sl(),
                     ),
-                    BlocProvider<RegionBorderOverlayCubit>(
-                      create: (context) => sl()..getRegionBorder(),
+                    BlocProvider<RegionBorderOverlayCubit>.value(
+                      value: sl()..getRegionBorder(),
                     ),
                   ],
                   child: EarthquakePage(heroKey: state.extra as String?),
@@ -169,6 +169,7 @@ class AppRoute {
             providers: [
               BlocProvider<RadarSelectionCubit>(create: (context) => sl()),
               BlocProvider<PlaybackCubit>(create: (context) => sl()),
+              BlocProvider<RegionBorderOverlayCubit>.value(value: sl()),
             ],
             child: const RadarPage(),
           ),
@@ -186,7 +187,7 @@ class AppRoute {
                 create: (context) => sl()..getImages(),
               ),
               BlocProvider<PlaybackCubit>(create: (context) => sl()),
-              BlocProvider<RegionBorderOverlayCubit>(create: (context) => sl()),
+              BlocProvider<RegionBorderOverlayCubit>.value(value: sl()),
             ],
             child: const SatelitePage(),
           ),
@@ -229,9 +230,7 @@ class AppRoute {
                 BlocProvider<NowcastCubit>(
                   create: (context) => sl()..getNowcasts(),
                 ),
-                BlocProvider<ProvinceBorderOverlayCubit>(
-                  create: (context) => sl(),
-                ),
+                BlocProvider<ProvinceBorderOverlayCubit>.value(value: sl()),
               ],
               child: NowcastPage(nowcast: nowcast),
             ),
@@ -249,7 +248,7 @@ class AppRoute {
               BlocProvider<MaritimeWeatherCubit>(
                 create: (context) => sl()..load(),
               ),
-              BlocProvider<MaritimeBoundariesCubit>(create: (context) => sl()),
+              BlocProvider<MaritimeBoundariesCubit>.value(value: sl()),
               BlocProvider<MaritimeWeatherDetailCubit>(
                 create: (context) => sl(),
               ),

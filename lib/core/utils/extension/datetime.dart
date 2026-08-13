@@ -10,8 +10,10 @@ extension DateTimeExtension on DateTime {
     return DateFormat('dd MMM yyyy', locale).format(toLocal());
   }
 
-  String toTimeString({bool second = true}) {
-    return DateFormat('HH:mm${second ? ':ss' : ''}').format(toLocal());
+  String toTimeString({bool second = true, bool withTimezone = false}) {
+    final local = toLocal();
+    final tz = withTimezone ? ' ${_tzAbbrev(local.timeZoneOffset)}' : '';
+    return '${DateFormat('HH:mm${second ? ':ss' : ''}').format(local)}$tz';
   }
 
   String toDateTimeString({bool withSecond = true, bool withTimezone = false, BuildContext? context}) {

@@ -11,6 +11,13 @@ class CelestialObjectEntity extends Equatable {
   final double? angle;
   final DateTime? riseTime;
   final DateTime? setTime;
+  final DateTime? solarNoon;
+  final DateTime? dawn;
+  final DateTime? dusk;
+  final DateTime? goldenHour;
+  final bool? waxing;
+  final bool? alwaysUp;
+  final bool? alwaysDown;
 
   const CelestialObjectEntity({
     this.altitude,
@@ -22,6 +29,13 @@ class CelestialObjectEntity extends Equatable {
     this.angle,
     this.riseTime,
     this.setTime,
+    this.solarNoon,
+    this.dawn,
+    this.dusk,
+    this.goldenHour,
+    this.waxing,
+    this.alwaysUp,
+    this.alwaysDown,
   });
 
   @override
@@ -36,6 +50,13 @@ class CelestialObjectEntity extends Equatable {
       angle,
       riseTime,
       setTime,
+      solarNoon,
+      dawn,
+      dusk,
+      goldenHour,
+      waxing,
+      alwaysUp,
+      alwaysDown,
     ];
   }
 }

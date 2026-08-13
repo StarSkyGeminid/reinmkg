@@ -139,7 +139,7 @@ class _CelestialDataState extends State<CelestialData> {
           Text(label),
           Text(
             time != null
-                ? DateFormat('HH:mm').format(time)
+                ? DateFormat('HH:mm').format(time.toLocal())
                 : Strings.of(context).notAvailableLabel,
           ),
         ],

@@ -13,7 +13,7 @@ class FaultLineDataLoading extends FaultLineDataState {
 }
 
 class FaultLineDataLoaded extends FaultLineDataState {
-  final String faultLine;
+  final Map<String, dynamic> faultLine;
   const FaultLineDataLoaded(this.faultLine);
 }
 

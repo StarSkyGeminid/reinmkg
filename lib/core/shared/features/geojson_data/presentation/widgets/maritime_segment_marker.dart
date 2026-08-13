@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -51,7 +50,6 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
   );
 
   StreamSubscription<MaritimeBoundariesState>? _cubitSub;
-  Map<String, dynamic>? _decodedBorder;
 
   @override
   void initState() {
@@ -109,10 +107,9 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
     });
   }
 
-  Future<void> processData(String geoJson) async {
+  void processData(Map<String, dynamic> geoJson) {
     try {
-      _decodedBorder ??= await compute(decodeJson, geoJson);
-      geoJsonParser.parseGeoJson(_decodedBorder!);
+      geoJsonParser.parseGeoJson(geoJson);
     } catch (e) {
       return;
     }
@@ -179,7 +176,7 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
     );
   }
 
-  Future<void> _drawPolygon(String boundaries) async {
+  void _drawPolygon(Map<String, dynamic> boundaries) {
     geoJsonParser = GeoJsonParser(
       defaultPolylineColor: Colors.transparent,
       defaultPolygonFillColor: Colors.transparent,
@@ -188,11 +185,11 @@ class _MaritimeSegmentMarkerState extends State<MaritimeSegmentMarker> {
 
     geoJsonParser.polygonCreationCallback = createDefaultPolygon;
 
-    processData(boundaries).then((_) {
-      if (!mounted) return;
+    processData(boundaries);
 
-      setState(() {});
-    });
+    if (!mounted) return;
+
+    setState(() {});
   }
 
   @override

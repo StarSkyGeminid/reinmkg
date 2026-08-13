@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -22,7 +21,6 @@ class MMIMarker extends StatefulWidget {
 class _MMIMarkerState extends State<MMIMarker> {
   StreamSubscription? _borderSub;
   StreamSubscription? _earthquakeSub;
-  Map<String, dynamic>? _decodedBorder;
   List<EarthquakeMmiEntity> listEarthquakeMMI = [];
   String regionsRegex = '';
 
@@ -70,10 +68,9 @@ class _MMIMarkerState extends State<MMIMarker> {
     });
   }
 
-  Future<void> processData(String geoJson) async {
+  void processData(Map<String, dynamic> geoJson) {
     try {
-      _decodedBorder ??= await compute(decodeJson, geoJson);
-      geoJsonParser.parseGeoJson(_decodedBorder!);
+      geoJsonParser.parseGeoJson(geoJson);
     } catch (e) {
       return;
     }
@@ -130,7 +127,7 @@ class _MMIMarkerState extends State<MMIMarker> {
     );
   }
 
-  Future<void> _drawPolygon(String provinceBorder) async {
+  void _drawPolygon(Map<String, dynamic> provinceBorder) {
     _earthquakeSub = BlocProvider.of<SelectableEarthquakeCubit>(context).stream.listen((state) {
       if (state is! SelectableEarthquakeSelected) return;
 
@@ -161,9 +158,9 @@ class _MMIMarkerState extends State<MMIMarker> {
 
       regionsRegex = '($regionsRegex)\$';
 
-      processData(provinceBorder).then((_) {
-        setState(() {});
-      });
+      processData(provinceBorder);
+
+      setState(() {});
     });
   }
 

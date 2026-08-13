@@ -61,9 +61,9 @@ class _RegionBorderState extends State<RegionBorder> {
     }
   }
 
-  Future<void> processData(String geoJson) async {
+  void processData(Map<String, dynamic> geoJson) {
     try {
-      await _geoJsonParser.parseGeoJsonAsString(geoJson);
+      _geoJsonParser.parseGeoJson(geoJson);
     } catch (e) {
       return;
     }
@@ -88,13 +88,13 @@ class _RegionBorderState extends State<RegionBorder> {
     );
   }
 
-  Future<void> _buildGeojson(String border) async {
+  void _buildGeojson(Map<String, dynamic> border) {
     _geoJsonParser.polygonCreationCallback = createDefaultPolygon;
 
-    processData(border).then((_) {
-      if (!mounted) return;
-      setState(() {});
-    });
+    processData(border);
+
+    if (!mounted) return;
+    setState(() {});
   }
 
   @override

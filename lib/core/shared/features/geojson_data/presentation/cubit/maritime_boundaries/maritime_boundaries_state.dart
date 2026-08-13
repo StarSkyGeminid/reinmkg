@@ -1,7 +1,7 @@
 part of 'maritime_boundaries_cubit.dart';
 
 class MaritimeBoundariesState extends Equatable {
-  final String? boundaries;
+  final Map<String, dynamic>? boundaries;
 
   const MaritimeBoundariesState({this.boundaries});
 

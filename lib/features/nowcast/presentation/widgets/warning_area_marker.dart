@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -23,7 +22,6 @@ class WarningAreaMarker extends StatefulWidget {
 class _WarningAreaMarkerState extends State<WarningAreaMarker> {
   StreamSubscription? _borderSub;
   StreamSubscription? _nowcastSub;
-  Map<String, dynamic>? _decodedBorder;
   final LayerHitNotifier hitNotifier = ValueNotifier(null);
 
   List<WeatherNowcastEntity> nowcasts = [];
@@ -88,10 +86,9 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
     });
   }
 
-  Future<void> processData(String geoJson) async {
+  void processData(Map<String, dynamic> geoJson) {
     try {
-      _decodedBorder ??= await compute(decodeJson, geoJson);
-      geoJsonParser.parseGeoJson(_decodedBorder!);
+      geoJsonParser.parseGeoJson(geoJson);
     } catch (e) {
       return;
     }
@@ -132,7 +129,7 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
     );
   }
 
-  Future<void> _drawPolygon(String provinceBorder) async {
+  void _drawPolygon(Map<String, dynamic> provinceBorder) {
     _nowcastSub = BlocProvider.of<NowcastCubit>(context).stream.listen((state) {
       if (state is! NowcastLoaded) return;
 
@@ -169,9 +166,9 @@ class _WarningAreaMarkerState extends State<WarningAreaMarker> {
 
       regionsRegex = '($regionsRegex)\$';
 
-      processData(provinceBorder).then((_) {
-        setState(() {});
-      });
+      processData(provinceBorder);
+
+      setState(() {});
     });
   }
 
